@@ -2,10 +2,11 @@ lib-cov
 *.seed
 *.log
 *.csv
-*.dat
 *.out
 *.pid
 *.gz
+.DS_Store
+thumbs.db
 
 pids
 logs
