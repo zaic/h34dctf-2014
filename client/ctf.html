@@ -1,0 +1,104 @@
+<head>
+  <title>h34dump CTF</title>
+</head>
+
+<body>
+  {{#if currentUser}}
+    {{> console}}
+  {{else}}
+    {{> login}}
+  {{/if}}
+</body>
+
+<template name="login">
+  <div class="" id="loginModal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>h34dCTF</h3>
+    </div>
+    <div class="modal-body">
+      <div class="well">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+          <li><a href="#create" data-toggle="tab">Register Team</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane active in" id="login">
+            <fieldset>
+              <div id="legend">
+                <legend class="">Login</legend>
+              </div>
+              <div class="control-group">
+                <!-- Username -->
+                <label class="control-label" for="team">Team Name</label>
+                <div class="controls">
+                  <input type="text" name="team" placeholder="" class="input-xlarge">
+                </div>
+              </div>
+              <div class="control-group">
+                <!-- Password-->
+                <label class="control-label" for="password">Password</label>
+                <div class="controls">
+                  <input type="password" name="password" placeholder="" class="input-xlarge">
+                </div>
+              </div>
+              <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                  <button id="submit_login" class="btn btn-success">Login</button>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="tab-pane fade" id="create">
+            <fieldset>
+              <label for="team">Team Name</label>
+              <input name="team" type="text" value="" class="input-xlarge">
+              <label for="email">Email</label>
+              <input name="email" type="text" value="" class="input-xlarge">
+              <label for="password">Password</label>
+              <input name="password" type="password" value="" class="input-xlarge">
+              <label for="form_novosib">Are you from Novosibirsk?</label>
+              <input name="from_novosib" type="checkbox">
+              <label for="team_size">Team size</label>
+              <input name="team_size" type="text" value="" class="input-xlarge">
+              <label for="notebooks">How much notebooks do you need?</label>
+              <input name="notebooks" type="text" value="" class="input-xlarge">
+              <div>
+                <button id="submit_register" class="btn btn-primary">Create Account</button>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="console">
+  <div class="console">
+    <div class="results_wrapper">
+      <div class="results">
+        <div class="result">
+          Welcome to h34dump CTF! <br>
+          Type 'help' to begin.
+        </div>
+        {{#each outputs}}
+        <div class="result">
+          >> {{command}}<br>
+          {{{result}}}<br>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="input">
+      <span class="prompt">>></span>
+      <span class="input_box">
+        <input id="console_input" name="console_input" type="text" autocomplete="off"/>
+      </span>
+    </div>
+  </div>
+</template>
+
+
