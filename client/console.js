@@ -199,6 +199,10 @@ var processCommand = function(command, callback) {
 	return result;
 };
 
+Template.console.rendered = function() {
+	$('#console_input').focus();
+};
+
 Template.console.outputs = function() {
 	return Session.get('console_results');
 };
