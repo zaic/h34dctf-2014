@@ -14,7 +14,7 @@
   <div class="" id="loginModal">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3>h34dCTF</h3>
+      <h3 id="fire" style="background: #000; color: #666;">h34dCTF</h3>
     </div>
     <div class="modal-body">
       <div class="well">
@@ -24,48 +24,48 @@
         </ul>
         <div id="myTabContent" class="tab-content">
           <div class="tab-pane active in" id="login">
-            <fieldset>
-              <div id="legend">
-                <legend class="">Login</legend>
-              </div>
+            <fieldset class="form-signin">
+              <h2 class="form-signin-heading">Login</h2>
               <div class="control-group">
                 <!-- Username -->
                 <label class="control-label" for="team">Team Name</label>
                 <div class="controls">
-                  <input type="text" name="team" placeholder="" class="input-xlarge">
+                  <input type="text" name="team" placeholder="" class="input-block-level">
                 </div>
               </div>
               <div class="control-group">
                 <!-- Password-->
                 <label class="control-label" for="password">Password</label>
                 <div class="controls">
-                  <input type="password" name="password" placeholder="" class="input-xlarge">
+                  <input type="password" name="password" placeholder="" class="input-block-level">
                 </div>
               </div>
               <div class="control-group">
                 <!-- Button -->
                 <div class="controls">
-                  <button id="submit_login" class="btn btn-success">Login</button>
+                  <button id="submit_login" class="btn btn-large btn-primary">Login</button>
                 </div>
               </div>
             </fieldset>
           </div>
           <div class="tab-pane fade" id="create">
-            <fieldset>
+            <fieldset class="form-signin">
+			  <h2 class="form-signin-heading">Register Team</h2>
               <label for="team">Team Name</label>
-              <input name="team" type="text" value="" class="input-xlarge">
+              <input name="team" type="text" value="" class="input-block-level">
               <label for="email">Email</label>
-              <input name="email" type="text" value="" class="input-xlarge">
+              <input name="email" type="text" value="" class="input-block-level">
               <label for="password">Password</label>
-              <input name="password" type="password" value="" class="input-xlarge">
-              <label for="form_novosib">Are you from Novosibirsk?</label>
-              <input name="from_novosib" type="checkbox">
+              <input name="password" type="password" value="" class="input-block-level">
+			  <label for="form_novosib" class="checkbox">
+				<input name="from_novosib" type="checkbox"> Are you from Novosibirsk?
+			  </label>
               <label for="team_size">Team size</label>
-              <input name="team_size" type="text" value="" class="input-xlarge">
+              <input name="team_size" type="text" value="" class="input-block-level">
               <label for="notebooks">How much notebooks do you need?</label>
-              <input name="notebooks" type="text" value="" class="input-xlarge">
+              <input name="notebooks" type="text" value="" class="input-block-level">
               <div>
-                <button id="submit_register" class="btn btn-primary">Create Account</button>
+                <button id="submit_register" class="btn btn-large btn-primary">Create Account</button>
               </div>
             </fieldset>
           </div>
