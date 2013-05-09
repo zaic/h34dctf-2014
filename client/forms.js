@@ -12,10 +12,17 @@ Template.login.events({
 			password: $form.find('input[name=password]').val(),
 			profile: {
 				from_novosib: $form.find('input[name=from_novosib]').val(),
+
+				// for teams from Nsk
 				team_size: $form.find('input[name=team_size]').val(),
 				notebooks: $form.find('input[name=notebooks]').val(),
 
+				// for other teams
+				country: $form.find('input[name=country]').val(),
+
+                // contest info
 				solvedTasks: [], //< list of ids of solved tasks
+				score: 0, //< score :)
 				lastSuccess: 0 //< date of last successfully solved task
 			}
 		}, function(error) {
