@@ -41,6 +41,10 @@ Template.login.events({
 	}
 });
 
+Template.login.teams = function() {
+    return Meteor.users.find({});
+};
+
 Template.login.created = function() {
 	toggleAnimation();
 };
@@ -48,6 +52,10 @@ Template.login.created = function() {
 Template.login.destroyed = function() {
 	toggleAnimation();
 };
+
+Meteor.startup(function() {
+    Meteor.subscribe("teams");
+});
 
 var handle = false;
 var textBrightness = 50;

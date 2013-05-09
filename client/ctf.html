@@ -21,6 +21,7 @@
         <ul class="nav nav-tabs">
           <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
           <li><a href="#create" data-toggle="tab">Register Team</a></li>
+          <li><a href="#participants" data-toggle="tab">Participants</a></li>
         </ul>
         <div id="myTabContent" class="tab-content">
           <div class="tab-pane active in" id="login">
@@ -67,6 +68,17 @@
               <div>
                 <button id="submit_register" class="btn btn-large btn-primary">Create Account</button>
               </div>
+            </fieldset>
+          </div>
+          <div class="tab-pane active in" id="participants">
+            <!-- TODO: nice UI -->
+            <fieldset class="form-signin">
+              <h2 class="form-signin-heading">Participants</h2>
+                {{#each teams}}
+                <div class="somethingClassShouldBeHere">
+                  {{username}} {{profile.from_novosib}}
+                </div>
+                {{/each}}
             </fieldset>
           </div>
         </div>
