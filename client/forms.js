@@ -11,6 +11,7 @@ Template.login.events({
 			email: $form.find('input[name=email]').val(),
 			password: $form.find('input[name=password]').val(),
 			profile: {
+				country: $form.find('input[name=country]').val(),
 				from_novosib: $form.find('input[name=from_novosib]').val(),
 
 				// for teams from Nsk
@@ -45,6 +46,16 @@ Template.login.events({
 			}
 		);
 		return false;
+	},
+	
+	'change #from_novosib': function(event) {
+		if (document.getElementById('from_novosib').checked == true) {
+			document.getElementById('team_size').style.display = 'block';
+			document.getElementById('notebooks').style.display = 'block';
+		} else {
+			document.getElementById('team_size').style.display = 'none';
+			document.getElementById('notebooks').style.display = 'none';
+		}
 	}
 });
 
