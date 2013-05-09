@@ -58,27 +58,31 @@
               <input name="email" type="text" value="" class="input-block-level">
               <label for="password">Password</label>
               <input name="password" type="password" value="" class="input-block-level">
-			  <label for="form_novosib" class="checkbox">
-				<input name="from_novosib" type="checkbox"> Are you from Novosibirsk?
+			  <label for="country">Country</label>
+			  <input name="country" type="text" value="" class="input-block-level">
+			  <label for="from_novosib" class="checkbox">
+				<input name="from_novosib" id="from_novosib" type="checkbox"> Are you from Novosibirsk?
 			  </label>
-              <label for="team_size">Team size</label>
-              <input name="team_size" type="text" value="" class="input-block-level">
-              <label for="notebooks">How much notebooks do you need?</label>
-              <input name="notebooks" type="text" value="" class="input-block-level">
+              <label for="team_size" id="team_size" style="display: none">Team size
+				<input name="team_size" type="text" value="" class="input-block-level">
+			  </label>
+              <label for="notebooks" id="notebooks" style="display: none">How much notebooks do you need?
+				<input name="notebooks" type="text" value="" class="input-block-level">
+			  </label>
               <div>
                 <button id="submit_register" class="btn btn-large btn-primary">Create Account</button>
               </div>
             </fieldset>
           </div>
-          <div class="tab-pane active in" id="participants">
-            <!-- TODO: nice UI -->
+          <div class="tab-pane fade" id="participants">
             <fieldset class="form-signin">
               <h2 class="form-signin-heading">Participants</h2>
-                {{#each teams}}
-                <div class="somethingClassShouldBeHere">
-                  {{username}} {{profile.from_novosib}}
-                </div>
-                {{/each}}
+				<table class="table table-bordered">
+					<tr><td>Team name</td><td>Country</td><td>From Novosibirsk</td></tr>
+					{{#each teams}}
+						<tr><td>{{username}}</td><td>{{profile.country}}</td><td>{{profile.from_novosib}}</td></tr>
+					{{/each}}
+				</table>
             </fieldset>
           </div>
         </div>
