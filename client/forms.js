@@ -53,7 +53,7 @@ Template.login.events({
 	},
 
 	'change #from_novosib': function(event) {
-		if ($('#from_novosib').checked === true) {
+		if ($('#from_novosib').is(':checked')) {
 			$('#team_size').css('display','block');
 			$('#notebooks').css('display', 'block');
 		} else {
