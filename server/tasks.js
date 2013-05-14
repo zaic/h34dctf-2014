@@ -6,7 +6,7 @@ tasks = [
 		category: 'Stegano',
 		description: 'Secret <a href="moo">cow level</a>',
 		value: 150,
-		available: true,
+		available: false,
 
 		checkFlag: function(flag) {
 			return (flag.replace('O', '0') === '4ND_n07_a_5iNgl3_c0w_wa5_GIv3n_7h@t_Day');
@@ -18,7 +18,7 @@ tasks = [
 		description: 'We got <a href="1fd6cd66ae5c983793914eae882ec942.JPG">this</a> ' +
 						'from Knights Templar hideout. What are they planning?',
 		value: 100,
-		available: true,
+		available: false,
 
 		checkFlag: function(flag) {
 			return (flag.toUpperCase() === 'HAVEYOUPLAYEDFOREZIO');

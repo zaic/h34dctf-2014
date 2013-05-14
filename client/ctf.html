@@ -13,11 +13,9 @@
 <template name="login">
   <div class="" id="loginModal">
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       <h3 id="fire" style="background: #000; color: #666;">h34dCTF</h3>
     </div>
     <div class="modal-body">
-      <div class="well">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
           <li><a href="#create" data-toggle="tab">Register Team</a></li>
@@ -48,6 +46,10 @@
                   <button id="submit_login" class="btn btn-large btn-primary">Login</button>
                 </div>
               </div>
+			  <div class="alert" id="login-error" style="display: none">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<div id="loginError"></div>
+			  </div>
             </fieldset>
           </div>
           <div class="tab-pane fade" id="create">
@@ -73,6 +75,10 @@
               <div>
                 <button id="submit_register" class="btn btn-large btn-primary">Create Account</button>
               </div>
+			  <div class="alert" id="register-error" style="display: none">
+				<button type="button" class="close" data-dismiss="alert">×</button>
+				<div id="registerError"></div>
+			  </div>
             </fieldset>
           </div>
           <div class="tab-pane fade" id="participants">
@@ -96,7 +102,7 @@
 				<p>3) This is a school CTF, problems have a beginning and an average level of complexity.</p>
 				<p>4) CTF is task-based. Each task will bring different points.</p>
 				<p><u>Rules:</u></p>
-				<p>1) Only registered teams may participate in this challenge. Registration is available at (place link here) before May 23.</p>
+				<p>1) Only registered teams may participate in this challenge. Registration is available at before May 23.</p>
 				<p>2) There is no limit for the number of people participating per team. You only need one registration per team.</p>
 				<p>3) Any kind of attack (such as DoS, bruteforce, etc.) at game servers or other teams is prohibited. Those teams who ignore this rule will be disqualified.</p>
 				<p>4) The competition will last for 6 hours.</p>
@@ -110,7 +116,7 @@
 				<p>3) Данный CTF имеет начальный уровень и рассчитан на начинающие команды.</p>
 				<p>4) Формат CTF - task-based (командам будут предложены различные задания, разные задания могут давать различное количество очков).</p>
 				<p><u>Правила:</u></p>
-				<p>1) К участию в соревнованиях допускаются только зарегистрированные команды. Зарегистрироваться можно (здесь ссылко) до 23 мая.</p>
+				<p>1) К участию в соревнованиях допускаются только зарегистрированные команды. Зарегистрироваться можно до 23 мая.</p>
 				<p>2) В команде может быть неограниченное количество участников.</p>
 				<p>3) Запрещены любые атаки на машины жюри и других участников (такие как DoS, bruteforce и другие), если не сказано обратное. Команды, которые нарушат это правило, будут дисквалифицированы.</p>
 				<p>4) Соревнование продлится 6 часов.</p>
@@ -119,7 +125,6 @@
             </fieldset>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </template>
