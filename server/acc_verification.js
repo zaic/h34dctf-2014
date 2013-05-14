@@ -22,9 +22,9 @@ Accounts.validateNewUser(function(user) {
 	if (typeof(fromNovosib) !== 'boolean') {
 		throw new Meteor.Error(403, 'Bad checkbox value');
 	}
-
+	
 	if (fromNovosib) {
-		if (parseInt(user.profile.team_size, 10) < 1) {
+		if (!(parseInt(user.profile.team_size, 10) > 0)) {
 			throw new Meteor.Error(403, 'Team size cannot be less than 1');
 		}
 	}
