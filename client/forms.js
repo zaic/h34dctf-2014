@@ -5,7 +5,7 @@ Accounts.ui.config({
 Template.login.events({
 	'click #submit_register': function(event) {
 		var $form = $('#create>fieldset');
-		$("#register-error").hide();
+		$('#register-error').hide();
 		Accounts.createUser({
 			username: $form.find('input[name=team]').val(),
 			email: $form.find('input[name=email]').val(),
@@ -37,12 +37,13 @@ Template.login.events({
 
 	'click #submit_login': function(event) {
 		var $form = $('#login>fieldset');
-		$("#login-error").hide();
+		$('#login-error').hide();
 		Meteor.loginWithPassword(
 			$form.find('input[name=team]').val(),
 			$form.find('input[name=password]').val(),
 			function(error) {
 				if(error) {
+					alert(error);
 					$('#loginError').html('' + error);
 					$('#login-error').show();
 				}
