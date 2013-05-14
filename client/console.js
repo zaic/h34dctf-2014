@@ -141,7 +141,7 @@ var commands = {
 		            last_rank = current_rank;
                 }
                 table += '&nbsp;'.repeat(4 - String(last_rank).length) + last_rank + ' ';
-                table += team.username.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '&nbsp;'.repeat(max_teamname_width - String(team.username).length + 1);
+                table += team.username.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '&nbsp;'.repeat(max_teamname_width - team.username.length + 1);
                 table += '&nbsp;'.repeat(5 - String(team.profile.score).length) + team.profile.score + '<br>';
                 current_rank += 1;
             });

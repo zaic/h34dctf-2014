@@ -6,32 +6,34 @@ Template.login.events({
 	'click #submit_register': function(event) {
 		var $form = $('#create>fieldset');
 		$('#register-error').hide();
-		Accounts.createUser({
-			username: $form.find('input[name=team]').val(),
-			email: $form.find('input[name=email]').val(),
-			password: $form.find('input[name=password]').val(),
-			profile: {
-				country: $form.find('input[name=country]').val(),
-				from_novosib: $form.find('input[name=from_novosib]').val(),
+		try {
+			Accounts.createUser({
+				username: $form.find('input[name=team]').val(),
+				email: $form.find('input[name=email]').val(),
+				password: $form.find('input[name=password]').val(),
+				profile: {
+					from_novosib: $form.find('input[name=from_novosib]').is(':checked'),
 
-				// for teams from Nsk
-				team_size: $form.find('input[name=team_size]').val(),
-				notebooks: $form.find('input[name=notebooks]').val(),
+					// for teams from Nsk
+					team_size: $form.find('input[name=team_size]').val(),
+					notebooks: $form.find('input[name=notebooks]').val(),
 
-				// for other teams
-				country: $form.find('input[name=country]').val(),
+					// for other teams
+					country: $form.find('input[name=country]').val(),
 
-                // contest info
-				solvedTasks: [], //< list of ids of solved tasks
-				score: 0, //< score :)
-				lastSuccess: 0 //< date of last successfully solved task
-			}
-		}, function(error) {
-			if (error) {
-				$('#registerError').html('' + error);
-				$('#register-error').show();
-			}
-		});
+					// contest info
+					solvedTasks: [], //< list of ids of solved tasks
+					score: 0, //< score :)
+					lastSuccess: 0 //< date of last successfully solved task
+				}
+			}, function(error) {
+				if (error) {
+					setRegisterError(error);
+				}
+			});
+		} catch(e) {
+			setRegisterError(e);
+		}
 		return false;
 	},
 
@@ -43,25 +45,33 @@ Template.login.events({
 			$form.find('input[name=password]').val(),
 			function(error) {
 				if(error) {
-					alert(error);
-					$('#loginError').html('' + error);
-					$('#login-error').show();
+					setLoginError(error);
 				}
 			}
 		);
 		return false;
 	},
-	
+
 	'change #from_novosib': function(event) {
-		if (document.getElementById('from_novosib').checked == true) {
-			document.getElementById('team_size').style.display = 'block';
-			document.getElementById('notebooks').style.display = 'block';
+		if ($('#from_novosib').checked === true) {
+			$('#team_size').css('display','block');
+			$('#notebooks').css('display', 'block');
 		} else {
-			document.getElementById('team_size').style.display = 'none';
-			document.getElementById('notebooks').style.display = 'none';
+			$('#team_size').css('display', 'none');
+			$('#notebooks').css('display', 'none');
 		}
 	}
 });
+
+function setRegisterError(error) {
+	$('#registerError').html(error.toString());
+	$('#register-error').show();
+}
+
+function setLoginError(error) {
+	$('#loginError').html(error.toString());
+	$('#login-error').show();
+}
 
 Template.login.teams = function() {
     return Meteor.users.find({});
@@ -74,10 +84,6 @@ Template.login.created = function() {
 Template.login.destroyed = function() {
 	toggleAnimation();
 };
-
-Meteor.startup(function() {
-    Meteor.subscribe("teams");
-});
 
 var handle = false;
 var textBrightness = 50;

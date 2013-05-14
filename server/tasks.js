@@ -28,7 +28,7 @@ tasks = [
 
 Meteor.methods({
 	checkFlag: function(task_name, flag) {
-		task = _.where(tasks, {name: task_name});
+		task = _.where(tasks, {name: task_name, available: true});
 
 		user = Meteor.user();
 		if (!user) { return false; }
