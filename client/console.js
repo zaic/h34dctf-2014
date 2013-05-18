@@ -300,13 +300,3 @@ Template.console.events({
 		}
 	}
 });
-
-Meteor.startup(function() {
-	Session.setDefault('console_pointer', 0);
-	Session.setDefault('console_history', []);
-	Session.setDefault('console_results', []);
-
-	if (Meteor.user()) {
-		$('#console_input').focus();
-	}
-});

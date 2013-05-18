@@ -3,12 +3,20 @@
 </head>
 
 <body>
-  {{#if currentUser}}
-    {{> console}}
-  {{else}}
-    {{> login}}
-  {{/if}}
+    {{> helper}}
 </body>
+
+<template name="helper">
+    {{#if isScoreboard}}
+        {{> scoreboard}}
+    {{else}}
+        {{#if currentUser}}
+            {{> console}}
+        {{else}}
+            {{> login}}
+        {{/if}}
+    {{/if}}
+</template>
 
 <template name="login">
   <div id="loginModal">
@@ -157,4 +165,28 @@
   </div>
 </template>
 
-
+<template name="scoreboard">
+    <h2 class="form-signin-heading">Scoreboard</h2>
+    <div>
+        <input name="nsk_only" id="nsk_only" type="checkbox">
+        <label for="nsk_only" class="checkbox">only nsk teams</label>
+    </div>
+    <table class="table table-bordered">
+        <tr>
+            <th>Rank</th>
+            <th>Team</th>
+            <th>Country</th>
+            <th>Score</th>
+            <th>Last</th>
+        </tr>
+        {{#each teams}}
+            <tr>
+                <td>{{rank}}</td>
+                <td>{{team}}</td>
+                <td>{{country}}</td>
+                <td>{{score}}</td>
+                <td>{{last_success}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</template>
