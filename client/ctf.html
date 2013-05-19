@@ -168,10 +168,12 @@
 <template name="scoreboard">
     <h2 class="form-signin-heading">Scoreboard</h2>
     <div>
-        <input name="nsk_only" id="nsk_only" type="checkbox">
-        <label for="nsk_only" class="checkbox">only nsk teams</label>
+        <label for="nsk_only" class="checkbox">
+			<input name="nsk_only" id="nsk_only" type="checkbox">only Novosibirsk teams
+		</label>
     </div>
-    <table class="table table-bordered">
+    <table class="table table-hover table-striped">
+	    <thead>  
         <tr>
             <th>Rank</th>
             <th>Team</th>
@@ -179,6 +181,8 @@
             <th>Score</th>
             <th>Last</th>
         </tr>
+		</thead>
+		<tbody>
         {{#each teams}}
             <tr>
                 <td>{{rank}}</td>
@@ -188,5 +192,6 @@
                 <td>{{last_success}}</td>
             </tr>
         {{/each}}
+		</tbody>
     </table>
 </template>
