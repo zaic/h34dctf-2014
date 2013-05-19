@@ -78,10 +78,6 @@ Template.login.teams = function() {
 };
 
 Template.login.created = function() {
-	Accounts.createUser({username: "team125", email: 'asdgav1@mail.com', password: '123', profile: { from_novosib: true, country: 'ololo', score: 2, last_success: 5, team_size: 2, notebooks: 0 }});
-	Accounts.createUser({username: "team126", email: 'asdgav2@mail.com', password: '123', profile: { from_novosib: true, country: 'ololo', score: 3, last_success: 5, team_size: 2, notebooks: 0 }});
-	Accounts.createUser({username: "team127", email: 'asdgav3@mail.com', password: '123', profile: { from_novosib: false, country: 'ololo', score: 4, last_success: 5, team_size: 2, notebooks: 0 }});
-	Accounts.createUser({username: "team128", email: 'asdgav4@mail.com', password: '123', profile: { from_novosib: false, country: 'ololo', score: 4, last_success: 5, team_size: 2, notebooks: 0 }});
 	toggleAnimation();
 };
 
