@@ -50,6 +50,7 @@ Meteor.methods({
 			return "Invalid task"; 
 		}
 
+		// TODO: store attempt
 		if (!task[0].checkFlag(flag)) {
 			return "It's wrong :("; 
 		}
@@ -65,6 +66,11 @@ Meteor.methods({
 		});
 		//TODO: add to ok_count in tasks
 		return 'Congratulations! +' + task[0].value.toString() + ' points ^_^';
+	},
+
+	getEndTime: function() {
+		var res = Date.UTC(2013, 5, 23, 16, 0, 0);
+		return res;
 	}
 });
 

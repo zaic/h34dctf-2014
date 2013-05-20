@@ -128,7 +128,7 @@ var commands = {
 		help: ' - shows scoreboard'
 	},
 
-	myrank: {
+	myrank: { // TODO: remove???
 		processFunc: function() {
 			return 'Not implemented'; //TODO: rank&score
 		},
@@ -141,12 +141,41 @@ var commands = {
 	},
 
 	timeleft: {
-		processFunc: function() {
-			return 'Not implemented'; //TODO
+		processFunc: function(callback) {
+			var getTimeInNiceFormat = function(t) {
+				var y = t.getFullYear().toString();
+				var m = ('0' + (t.getMonth() + 1)).slice(-2);
+				var d = ('0' + t.getDate()).slice(-2);
+				var h = ('0' + t.getHours()).slice(-2);
+				var i = ('0' + t.getMinutes()).slice(-2);
+				var s = ('0' + t.getSeconds()).slice(-2);
+				var res = "";
+				if (y > 1970) {
+					res = y + "-" + m + "-" + d + " ";
+				}
+				return res + h + ":" + i + ":" + s;
+			};
+			var getDistanceInNiceFormat = function(t) {
+				t = Math.round(t / 1000);
+				var h = ('0' + (Math.round(t / 3600))).slice(-2);
+				t %= 3600;
+				var i = ('0' + (Math.round(t / 60))).slice(-2);
+				var s = ('0' + (t % 60)).slice(-2);
+				return h + ":" + i + ":" + s;
+			};
+			Meteor.call('getEndTime', function(error, result) {
+				var result_local = new Date(0);
+				result_local.setUTCMilliseconds(result);
+				var time_cur  = "Current time: " + getTimeInNiceFormat(new Date());
+				var time_end  = "Ending time: &nbsp;" + getTimeInNiceFormat(result_local);
+				var time_left = "<b>Timeleft:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp" + getDistanceInNiceFormat((result_local - (new Date()))) + "</b>";
+				callback(time_cur + '<br>' + time_end + '<br>' + time_left);
+			});
+			return "";
 		},
 
 		isAvailable: function() {
-			return false; //TODO: true
+			return true;
 		},
 
 		help: ' - shows how much time left until competition ends'
