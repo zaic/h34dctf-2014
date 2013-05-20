@@ -6,7 +6,7 @@ var commands = {
 			var maxTasksPerCategory = 0;
 			var result = '';
 			Tasks.find({}, {sort: {'value': 1}}).forEach(function(task) {
-				var dispalyName = task.name + ' (' + task.value.toString() + ')';
+				var dispalyName = task.name + ' (' + task.value.toString() + '/' + task.solved.toString() + ')';
 				if (task.category in categories) {
 					categories[task.category].objects.push(dispalyName);
 					if (categories[task.category].maxLength < dispalyName.length) {

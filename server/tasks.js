@@ -59,7 +59,7 @@ Meteor.methods({
 			return "It's wrong :("; 
 		}
 
-		if(!(task_name in user.profile.solved_tasks)) {
+		if(user.profile.solved_tasks.indexOf(task_name) !== -1) {
 			return "Task already solved :)";
 		}
 
@@ -68,7 +68,7 @@ Meteor.methods({
 			$push: { 'profile.solved_tasks': task_name },
 			$set: { 'profile.last_success': curr_submit_time }
 		});
-		//TODO: add to ok_count in tasks
+		Tasks.update({name: task_name}, {$inc: { solved: 1} });
 		return 'Congratulations! +' + task[0].value.toString() + ' points ^_^';
 	},
 

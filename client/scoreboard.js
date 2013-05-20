@@ -18,7 +18,7 @@ Template.scoreboard.teams = function() {
             team: team.username,
             country: team.profile.country,
             score: team.profile.score,
-            last_success: team.profile.last_success
+            last_success: team.profile.last_success // TODO nice time
         };
     });
 };
