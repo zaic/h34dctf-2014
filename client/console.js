@@ -71,17 +71,10 @@ var commands = {
 			if (!task) {
 				return 'There is no such task';
 			}
-			//TODO: check if flag was already passed
-			Meteor.call('checkFlag', task_name, flag, function(error, isCorrect) {
-				if (error) {
-					callback('Some error has occured :(');
-				} else if (isCorrect) {
-					callback('Congratulations! +' + task.value.toString() + ' points');
-				} else {
-					callback('It\'s wrong :(');
-				}
+			Meteor.call('checkFlag', task_name, flag, function(error, result) {
+				callback(result);
 			});
-			return '<Checking...>';
+			return "";
 		},
 
 		isAvailable: function() {
@@ -137,14 +130,14 @@ var commands = {
 
 	myrank: {
 		processFunc: function() {
-			return 'Not implemented'; //TODO
+			return 'Not implemented'; //TODO: rank&score
 		},
 
 		isAvailable: function() {
 			return false; //TODO: true
 		},
 
-		help: ' - shows your team rank'
+		help: ' - shows your team rank and your score'
 	},
 
 	timeleft: {

@@ -24,6 +24,7 @@ Template.scoreboard.teams = function() {
 };
 
 Template.scoreboard.events({
+	// TODO set checkbox to need
 	'change #nsk_only': function(event) {
 	    Session.set('scoreboard_teams', $('#nsk_only').is(':checked') ? 'nsk' : 'all');
 	}
