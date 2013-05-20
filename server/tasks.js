@@ -30,12 +30,20 @@ tasks = [
 
 Meteor.methods({
 	checkFlag: function(task_name, flag) {
-		console.log("trying to solve");
 		user = Meteor.user();
 		if (!user) {
 			return "Unauthozied!!11";
 		}
-		// TODO: user timeout
+
+		var curr_submit_time = Math.round(new Date().getTime() / 1000); // current time in seconds
+		var last_submit_time = Meteor.user().profile.last_submit;
+		if(last_submit_time == undefined) { last_submit_time = 0; }
+		if(curr_submit_time < last_submit_time + 10) {
+			return "Too many attempts, please wait " + (last_submit_time + 10 - curr_submit_time).toString() + " seconds.";
+		}
+		Meteor.users.update({_id: Meteor.user()._id}, {
+			$set: { 'profile.last_submit': curr_submit_time }
+		});
 
 		task = _.where(tasks, {name: task_name, available: true});
 		if (task.length === 0) { 
@@ -50,9 +58,11 @@ Meteor.methods({
 			return "Task already solved :)";
 		}
 
-		Meteor.users.update({_id: Meteor.user()._id}, {$inc: { 'profile.score': task[0].value }, $push: { 'profile.solved_tasks': task_name } } );
-		console.log(Meteor.user().profile.score);
-		//TODO: add to solved tasks, update lastSuccess
+		Meteor.users.update({_id: Meteor.user()._id}, {
+			$inc: { 'profile.score': task[0].value }, 
+			$push: { 'profile.solved_tasks': task_name },
+			$set: { 'profile.last_success': curr_submit_time }
+		});
 		//TODO: add to ok_count in tasks
 		return 'Congratulations! +' + task[0].value.toString() + ' points ^_^';
 	}

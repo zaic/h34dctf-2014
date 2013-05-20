@@ -24,7 +24,8 @@ Template.login.events({
 					// contest info
 					solved_tasks: [], //< list of ids of solved tasks
 					score: 0, // score :)
-					last_success: 0 //< date of last successfully solved task
+					last_success: 0, //< date of last successfully solved task
+					last_submit:  0  //< date of last submit
 				}
 			}, function(error) {
 				if (error) {
