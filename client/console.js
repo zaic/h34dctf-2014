@@ -122,31 +122,10 @@ var commands = {
 
 	scoreboard: {
 		processFunc: function() {
-            // TODO: remove not nsk teams for nsk-scoreboard
-		    var teams = Meteor.users.find({'profile.score': {$gt: 0}}, {sort: { 'profile.score': 'desc' } });
+            var win = window.open('/scoreboard', '_blank');
+            win.focus();
 
-		    var max_teamname_width = 1;
-		    teams.forEach(function (team) {
-                max_teamname_width = Math.max(max_teamname_width, team.username.length);
-            });
-            teams.rewind();
-
-		    var table = 'Rank Team' + '&nbsp;'.repeat(max_teamname_width - 3) + 'Score<br>';
-		    var last_score = -1;
-		    var last_rank = 1;
-		    var current_rank = 1;
-		    teams.forEach(function (team) {
-		        if(last_score != team.profile.score) {
-		            last_score = team.profile.score;
-		            last_rank = current_rank;
-                }
-                table += '&nbsp;'.repeat(4 - String(last_rank).length) + last_rank + ' ';
-                table += team.username.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '&nbsp;'.repeat(max_teamname_width - team.username.length + 1);
-                table += '&nbsp;'.repeat(5 - String(team.profile.score).length) + team.profile.score + '<br>';
-                current_rank += 1;
-            });
-
-			return table;
+			return "opened";
 		},
 
 		isAvailable: function() {

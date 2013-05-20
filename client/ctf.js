@@ -27,7 +27,7 @@ Meteor.startup(function() {
     Session.setDefault('console_results', []);
     Session.setDefault('scoreboard_teams', 'nsk');
 
-    if (Meteor.user()) { // TODO and page isn't monitor
+    if (Meteor.user() && Session.equals('current_page', 'scoreboard')) {
         $('#console_input').focus();
     }
 

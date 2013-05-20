@@ -34,7 +34,7 @@ Meteor.methods({
 		if (!user) { return false; }
 
 		if (task.length !== 0) {
-			if (task[0].checkFlag(flag) && !(Tasks.findOne({name: task[0].name})._id in user.profile.solvedTasks)) {
+			if (task[0].checkFlag(flag) && !(Tasks.findOne({name: task[0].name})._id in user.profile.solved_tasks)) {
 				//TODO: add to solved tasks, update lastSuccess
 			}
 		}

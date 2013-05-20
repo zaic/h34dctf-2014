@@ -22,8 +22,8 @@ Template.login.events({
 					country: $form.find('input[name=country]').val(),
 
 					// contest info
-					solvedTasks: [], //< list of ids of solved tasks
-					score: 0, //< score :)
+					solved_tasks: [], //< list of ids of solved tasks
+					score: 0, // score :)
 					last_success: 0 //< date of last successfully solved task
 				}
 			}, function(error) {
