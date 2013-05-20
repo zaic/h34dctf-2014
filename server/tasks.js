@@ -1,3 +1,7 @@
+// some hardcoded constants
+SUBMIT_TIME_OUT = 10; // in seconds
+CONTEST_END_TIME = Date.UTC(2013, 5, 23, 16, 0, 0); // UTC date
+
 // tasks for this ctf
 // note that names are expected to be unique and contain no whitespaces
 tasks = [
@@ -38,8 +42,8 @@ Meteor.methods({
 		var curr_submit_time = Math.round(new Date().getTime() / 1000); // current time in seconds
 		var last_submit_time = Meteor.user().profile.last_submit;
 		if(last_submit_time == undefined) { last_submit_time = 0; }
-		if(curr_submit_time < last_submit_time + 10) {
-			return "Too many attempts, please wait " + (last_submit_time + 10 - curr_submit_time).toString() + " seconds.";
+		if(curr_submit_time < last_submit_time + SUBMIT_TIME_OUT) {
+			return "Too many attempts, please wait " + (last_submit_time + SUBMIT_TIME_OUT - curr_submit_time).toString() + " seconds.";
 		}
 		Meteor.users.update({_id: Meteor.user()._id}, {
 			$set: { 'profile.last_submit': curr_submit_time }
@@ -69,8 +73,7 @@ Meteor.methods({
 	},
 
 	getEndTime: function() {
-		var res = Date.UTC(2013, 5, 23, 16, 0, 0);
-		return res;
+		return CONTEST_END_TIME;
 	}
 });
 
