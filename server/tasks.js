@@ -162,6 +162,19 @@ tasks = [
 		checkFlag: function(flag) {
 			return (flag === '38576577844');
 		}
+	},
+	{
+		name: 'keyasker',
+		category: 'Binary',
+		description: 'Get a key, pleeeeeeease! <a href="/aa2b3d769140c440e44fcfeba3757081">file</a>',
+		value: 100,
+		available: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === '69ccc0dd616f12d151525fc9f753ec9f');
+		}
 	}
 ];
 

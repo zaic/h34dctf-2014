@@ -245,7 +245,7 @@ Template.console.rendered = function() {
 	$('#console_input').focus();
 
 	var $resultsWrapper = $('.results_wrapper');
-	$resultsWrapper.scrollTop($resultsWrapper.offset().top);
+	$resultsWrapper.scrollTop($('.results_wrapper').offset().top);
 };
 
 Template.console.outputs = function() {
