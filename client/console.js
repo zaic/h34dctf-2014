@@ -245,7 +245,9 @@ var processCommand = function(command, callback) {
 
 Template.console.rendered = function() {
 	$('#console_input').focus();
-	$('.results_wrapper').scrollTop(1111111111111111111);
+
+	var $resultsWrapper = $('.results_wrapper');
+	$resultsWrapper.scrollTop($resultsWrapper.offset().top);
 };
 
 Template.console.outputs = function() {
