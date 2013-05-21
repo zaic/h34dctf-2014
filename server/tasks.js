@@ -192,10 +192,12 @@ Meteor.methods({
 
 Meteor.publish(null, function() {
 	return Tasks.find({'available': true}, {fields: {
-		'name': 1,
-		'category': 1,
-		'description': 1,
-		'value': 1
+		name: 1,
+		category: 1,
+		description: 1,
+		value: 1,
+		available: 1,
+		solved: 1
 	}});
 });
 
