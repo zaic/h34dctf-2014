@@ -8,7 +8,7 @@ tasks = [
 	{
 		name: 'cow_level',
 		category: 'Stegano',
-		description: 'Secret <a href="moo">cow level</a>',
+		description: 'Secret <a href="moo" target="_blank">cow level</a>',
 		value: 150,
 		available: true,
 		solved: 0,
@@ -20,7 +20,7 @@ tasks = [
 	{
 		name: 'templars',
 		category: 'Crypto',
-		description: 'We got <a href="1fd6cd66ae5c983793914eae882ec942.JPG">this</a> ' +
+		description: 'We got <a href="1fd6cd66ae5c983793914eae882ec942.JPG" target="_blank">this</a> ' +
 						'from Knights Templar hideout. What are they planning?',
 		value: 100,
 		available: true,
@@ -28,6 +28,31 @@ tasks = [
 
 		checkFlag: function(flag) {
 			return (flag.toUpperCase() === 'HAVEYOUPLAYEDFOREZIO');
+		}
+	},
+	{
+		name: 'moveit',
+		category: 'Crypto',
+		description: 'Classical cipher like l33t ' +
+				'<a href="https://www.dropbox.com/sh/2wll8vvwy4hf23c/KeNdXRDPUc/crypto200_encrypted.txt target="_blank"></a>',
+		value: 200,
+		available: true,
+		solved: 0,
+		
+		checkFlag: function(flag) {
+			return (flag === 'cryptool_0r_manu4l');
+		}
+	},
+	{
+		name: 'kryptozz',
+		category: 'Crypto',
+		description: 'Give sequence of digits in geolocation from <a href="https://www.dropbox.com/s/rjf7kmzgy5zw9jq/crypto50.jpg" target="_blank">part2</a> of plaintext.',
+		value: 50,
+		available: true,
+		solved: 0,
+		
+		checkFlag: function(flag) {
+			return (flag === '38576577844');
 		}
 	}
 ];
