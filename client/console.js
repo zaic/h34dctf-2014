@@ -128,18 +128,6 @@ var commands = {
 		help: ' - shows scoreboard'
 	},
 
-	myrank: { // TODO: remove???
-		processFunc: function() {
-			return 'Not implemented'; //TODO: rank&score
-		},
-
-		isAvailable: function() {
-			return false; //TODO: true
-		},
-
-		help: ' - shows your team rank and your score'
-	},
-
 	timeleft: {
 		processFunc: function(callback) {
 			var getTimeInNiceFormat = function(t) {
@@ -181,6 +169,38 @@ var commands = {
 		help: ' - shows how much time left until competition ends'
 	},
 
+	hints: {
+		processFunc: function() {
+			var tasks = Tasks.find({});
+			var hintsStr = '';
+			tasks.forEach(function(task) {
+				if (task.hints && task.hints.length !== 0) {
+					if (hintsStr.length !== 0) {
+						hintsStr += '<br>';
+					}
+					_.each(task.hints, function(hint, index) {
+						if (index === 0) {
+							hintsStr += '<b>' + task.name + '</b> - ';
+						} else {
+							hintsStr += '<br>' + '&nbsp'.repeat(task.name.length + 3);
+						}
+						hintsStr += hint;
+					});
+				}
+			});
+			if (hintsStr.length === 0) {
+				return 'No hints available yet :(';
+			}
+			return hintsStr;
+		},
+
+		isAvailable: function() {
+			return true;
+		},
+
+		help: ' - shows full list of available hints'
+	},
+
 	help: {
 		processFunc: function(callback) {
 			var result = '';
@@ -203,7 +223,6 @@ var commands = {
 };
 
 var processCommand = function(command, callback) {
-	//TODO: better parsing (quoted strings etc.)
 	var words = command.split(/\s+/);
 	commandName = words[0];
 	commandArgs = words.slice(1);
@@ -226,7 +245,9 @@ var processCommand = function(command, callback) {
 
 Template.console.rendered = function() {
 	$('#console_input').focus();
-	$('.results_wrapper').scrollTop(1111111111111111111);
+
+	var $resultsWrapper = $('.results_wrapper');
+	$resultsWrapper.scrollTop($resultsWrapper.offset().top);
 };
 
 Template.console.outputs = function() {

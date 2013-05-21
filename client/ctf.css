@@ -90,6 +90,7 @@ div.result{
   border: 0;
   font-family: monospace;
   color: #FFF;
+  height:22px;
 }
 
 #console_input:focus {
