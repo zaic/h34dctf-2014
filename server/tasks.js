@@ -12,6 +12,7 @@ tasks = [
 		value: 150,
 		available: true,
 		solved: 0,
+		hints: [],
 
 		checkFlag: function(flag) {
 			return (flag.replace('O', '0') === '4ND_n07_a_5iNgl3_c0w_wa5_GIv3n_7h@t_Day');
@@ -24,6 +25,8 @@ tasks = [
 		value: 200,
 		available: true,
 		solved: 0,
+		hints: [],
+
 		checkFlag: function(flag) {
 			return (flag === 'd0eS_th3_m4n_makE_t4e_suit');
 		}
@@ -35,6 +38,8 @@ tasks = [
 		value: 50,
 		available: true,
 		solved: 0,
+		hints: [],
+
 		checkFlag: function(flag) {
 			return (flag === 'This_was_S0000_simPL3!');
 		}
@@ -46,6 +51,8 @@ tasks = [
 		value: 50,
 		available: true,
 		solved: 0,
+		hints: [],
+
 		checkFlag: function(flag) {
 			return (flag === '3vil_maKKKr0s_I5_v3333rY_3vIl');
 		}
@@ -57,6 +64,8 @@ tasks = [
 		value: 100,
 		available: true,
 		solved: 0,
+		hints: [],
+
 		checkFlag: function(flag) {
 			return (flag === '3xc3l_|s_s0_serious');
 		}
@@ -68,6 +77,8 @@ tasks = [
 		value: 200,
 		available: true,
 		solved: 0,
+		hints: [],
+
 		checkFlag: function(flag) {
 			return (flag === 'deEp_s3aRCh-m4St#r');
 		}
@@ -79,6 +90,8 @@ tasks = [
 		value: 300,
 		available: true,
 		solved: 0,
+		hints: [],
+
 		checkFlag: function(flag) {
 			return (flag === 'pl34sE_don_t_use_scr3wdr|v3r_i_do_not_d3s3rvE_it');
 		}
@@ -90,6 +103,8 @@ tasks = [
 		value: 400,
 		available: true,
 		solved: 0,
+		hints: [],
+
 		checkFlag: function(flag) {
 			return(flag === 'NOTHINGTODOHERE11');
 		}
@@ -101,6 +116,8 @@ tasks = [
 		value: 100,
 		available: true,
 		solved: 0,
+		hints: [],
+
 		checkFlag: function(flag) {
 			return (flag === 'x0r_XoR_xO_x0');
 		}
@@ -113,6 +130,7 @@ tasks = [
 		value: 100,
 		available: true,
 		solved: 0,
+		hints: [],
 
 		checkFlag: function(flag) {
 			return (flag.toUpperCase() === 'HAVEYOUPLAYEDFOREZIO');
@@ -126,6 +144,7 @@ tasks = [
 		value: 200,
 		available: true,
 		solved: 0,
+		hints: [],
 
 		checkFlag: function(flag) {
 			return (flag === 'cryptool_0r_manu4l');
@@ -138,6 +157,7 @@ tasks = [
 		value: 50,
 		available: true,
 		solved: 0,
+		hints: [],
 
 		checkFlag: function(flag) {
 			return (flag === '38576577844');
@@ -197,7 +217,8 @@ Meteor.publish(null, function() {
 		description: 1,
 		value: 1,
 		available: 1,
-		solved: 1
+		solved: 1,
+		hints: 1
 	}});
 });
 
