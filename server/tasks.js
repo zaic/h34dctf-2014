@@ -97,7 +97,7 @@ tasks = [
 		}
 	},
 	{
-		name: 'ressurection',
+		name: 'resurrection',
 		category: 'Forensics',
 		description: 'Our <a href="https://www.dropbox.com/s/xidi9achphm2s1j/for-400-f5918a911f23118812e5f8d9fc67f366.rar" target="_blank">database</a> was badly damaged by unknown hackers. It looks like they are playing with us, because they haven\'t deleted all files and encrypted some files names of the rest. See if you can find anything that wasn\'t corrupted. Send the flag in uppercase letters without any whitespaces.',
 		value: 400,
@@ -169,7 +169,7 @@ Meteor.methods({
 	checkFlag: function(task_name, flag) {
 		user = Meteor.user();
 		if (!user) {
-			return "Unauthozied!!11";
+			return "Unauthorized!!11";
 		}
 
 		var curr_submit_time = Math.round(new Date().getTime() / 1000); // current time in seconds
@@ -223,9 +223,6 @@ Meteor.publish(null, function() {
 });
 
 Meteor.startup(function() {
-	// TODO :set solved_tasks to empty array for those who hadn't solved anything
-	// Meteor.users.update({???},{$set: {'profile.solved_tasks':[]}},{multi:true});
-	// TODO: follow code can broke all stat when server crashed
 	_.each(tasks, function(task) {
 		if (Tasks.find({name: task.name}).count() === 0) {
 			Tasks.insert(_.omit(task, 'checkFlag'));
@@ -233,5 +230,15 @@ Meteor.startup(function() {
 			Tasks.update({name: task.name}, _.omit(task, 'checkFlag'));
 		}
 	});
+
+	// fix fields names
+	Meteor.users.update(
+		{ 'profile.solved_tasks': { $exists: false}}, 
+		{ $set: {
+			'profile.solved_tasks': [],
+			'profile.last_submit': 0,
+			'profile.last_success': 0 }
+		}
+	);
 });
 

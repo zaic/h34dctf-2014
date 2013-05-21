@@ -13,12 +13,19 @@ Template.scoreboard.teams = function() {
             last_rank  = current_rank;
         }
         current_rank += 1;
+		var t = new Date(0);
+		if (team.profile.last_success > 0) {
+			t.setUTCSeconds(team.profile.last_success);
+			t = getTimeInNiceFormat(t);
+		} else {
+			t = "-";
+		}
         return {
             rank: last_rank,
             team: team.username,
             country: team.profile.country,
             score: team.profile.score,
-            last_success: team.profile.last_success // TODO nice time
+            last_success: t
         };
     });
 };
