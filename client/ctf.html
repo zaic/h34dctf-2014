@@ -168,10 +168,14 @@
 </template>
 
 <template name="scoreboard">
-    <h2 class="form-signin-heading">Scoreboard</h2>
-    <div>
+    <div align='center'>
+		<h2 class="form-signin-heading">Scoreboard</h2>
         <label for="nsk_only" class="checkbox">
-			<input name="nsk_only" id="nsk_only" type="checkbox">only Novosibirsk teams
+		{{#if isNskOnly}}
+			<input name="nsk_only" id="nsk_only" type="checkbox" align="center" checked>only Novosibirsk teams
+		{{else}}
+			<input name="nsk_only" id="nsk_only" type="checkbox" align="center">only Novosibirsk teams
+		{{/if}}
 		</label>
     </div>
     <table class="table table-hover table-striped">
