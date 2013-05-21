@@ -169,7 +169,7 @@ Meteor.methods({
 	checkFlag: function(task_name, flag) {
 		user = Meteor.user();
 		if (!user) {
-			return "Unauthozied!!11";
+			return "Unauthorized!!11";
 		}
 
 		var curr_submit_time = Math.round(new Date().getTime() / 1000); // current time in seconds
