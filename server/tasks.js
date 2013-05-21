@@ -97,7 +97,7 @@ tasks = [
 		}
 	},
 	{
-		name: 'ressurection',
+		name: 'resurrection',
 		category: 'Forensics',
 		description: 'Our <a href="https://www.dropbox.com/s/xidi9achphm2s1j/for-400-f5918a911f23118812e5f8d9fc67f366.rar" target="_blank">database</a> was badly damaged by unknown hackers. It looks like they are playing with us, because they haven\'t deleted all files and encrypted some files names of the rest. See if you can find anything that wasn\'t corrupted. Send the flag in uppercase letters without any whitespaces.',
 		value: 400,
