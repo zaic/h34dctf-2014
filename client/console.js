@@ -226,6 +226,7 @@ var processCommand = function(command, callback) {
 
 Template.console.rendered = function() {
 	$('#console_input').focus();
+	$('.results_wrapper').scrollTop(1111111111111111111);
 };
 
 Template.console.outputs = function() {

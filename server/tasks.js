@@ -126,7 +126,7 @@ tasks = [
 		value: 200,
 		available: true,
 		solved: 0,
-		
+
 		checkFlag: function(flag) {
 			return (flag === 'cryptool_0r_manu4l');
 		}
@@ -138,7 +138,7 @@ tasks = [
 		value: 50,
 		available: true,
 		solved: 0,
-		
+
 		checkFlag: function(flag) {
 			return (flag === '38576577844');
 		}
@@ -154,7 +154,7 @@ Meteor.methods({
 
 		var curr_submit_time = Math.round(new Date().getTime() / 1000); // current time in seconds
 		var last_submit_time = Meteor.user().profile.last_submit;
-		if(last_submit_time == undefined) { last_submit_time = 0; }
+		if(typeof(last_submit_time) === 'undefined') { last_submit_time = 0; }
 		if(curr_submit_time < last_submit_time + SUBMIT_TIME_OUT) {
 			return "Too many attempts, please wait " + (last_submit_time + SUBMIT_TIME_OUT - curr_submit_time).toString() + " seconds.";
 		}
@@ -163,13 +163,13 @@ Meteor.methods({
 		});
 
 		task = _.where(tasks, {name: task_name, available: true});
-		if (task.length === 0) { 
-			return "Invalid task"; 
+		if (task.length === 0) {
+			return "Invalid task";
 		}
 
 		// TODO: store attempt
-		if (!task[0].checkFlag(flag)) {
-			return "It's wrong :("; 
+		if (typeof(flag) !== 'string' || !task[0].checkFlag(flag)) {
+			return "It's wrong :(";
 		}
 
 		if(user.profile.solved_tasks.indexOf(task_name) !== -1) {
@@ -177,7 +177,7 @@ Meteor.methods({
 		}
 
 		Meteor.users.update({_id: Meteor.user()._id}, {
-			$inc: { 'profile.score': task[0].value }, 
+			$inc: { 'profile.score': task[0].value },
 			$push: { 'profile.solved_tasks': task_name },
 			$set: { 'profile.last_success': curr_submit_time }
 		});
@@ -196,7 +196,7 @@ Meteor.publish(null, function() {
 		'category': 1,
 		'description': 1,
 		'value': 1
-	}})
+	}});
 });
 
 Meteor.startup(function() {
