@@ -207,6 +207,9 @@ var commands = {
 			var availableCommands = _.filter(_.pairs(commands), function(commandPair) {
 				return commandPair[1].isAvailable();
 			});
+			availableCommands = _.sortBy(availableCommands, function(commandPair) {
+				return commandPair[0];
+			});
 			_.each(availableCommands, function(commandPair, commandName) {
 				result += _.escape(commandPair[0]) + ' ' +
 							_.escape(commandPair[1].help) + '<br>';
