@@ -8,7 +8,7 @@ tasks = [
 	{
 		name: 'cow_level',
 		category: 'Stegano',
-		description: 'Secret <a href="moo" target="_blank">cow level</a>',
+		description: 'Secret <a href="79805faac89d408d0c4c73b465cac3ce" target="_blank">cow level</a>',
 		value: 150,
 		available: true,
 		solved: 0,
@@ -166,7 +166,7 @@ tasks = [
 	{
 		name: 'keyasker',
 		category: 'Binary',
-		description: 'Get a key, pleeeeeeease! <a href="/aa2b3d769140c440e44fcfeba3757081">file</a>',
+		description: 'Get a key, pleeeeeeease! <a href="/aa2b3d769140c440e44fcfeba3757081" target="_blank">file</a>',
 		value: 100,
 		available: true,
 		solved: 0,
