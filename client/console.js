@@ -88,7 +88,15 @@ var commands = {
 		processFunc: function(task_name, callback) {
 			var task = Tasks.findOne({name: task_name});
 			if (typeof(task) !== 'undefined') {
-				return task.description;
+				var result = '';
+				result = task.description;
+				if (task.hints && task.hints.length !== 0) {
+					result += '<br><br><b>Hints for this task:</b>';
+					_.each(task.hints, function(hint) {
+						result += '<br>- ' + hint;
+					});
+				}
+				return result;
 			}
 			return 'There is no such task';
 		},

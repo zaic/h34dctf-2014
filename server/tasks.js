@@ -233,7 +233,7 @@ Meteor.startup(function() {
 
 	// fix fields names
 	Meteor.users.update(
-		{ 'profile.solved_tasks': { $exists: false}}, 
+		{ 'profile.solved_tasks': { $exists: false}},
 		{ $set: {
 			'profile.solved_tasks': [],
 			'profile.last_submit': 0,
