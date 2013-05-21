@@ -5,9 +5,3 @@ Tasks = new Meteor.Collection('ctf_tasks');
 String.prototype.repeat = function( num ) {
     return new Array( num + 1 ).join( this );
 };
-
-if (Meteor.isServer) {
-	Meteor.publish(null, function() {
-		return Tasks.find({available: true});
-	});
-}
