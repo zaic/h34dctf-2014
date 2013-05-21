@@ -88,7 +88,15 @@ var commands = {
 		processFunc: function(task_name, callback) {
 			var task = Tasks.findOne({name: task_name});
 			if (typeof(task) !== 'undefined') {
-				return task.description;
+				var result = '';
+				result = task.description;
+				if (task.hints && task.hints.length !== 0) {
+					result += '<br><br><b>Hints for this task:</b>';
+					_.each(task.hints, function(hint) {
+						result += '<br>- ' + hint;
+					});
+				}
+				return result;
 			}
 			return 'There is no such task';
 		},
@@ -194,6 +202,9 @@ var commands = {
 			var availableCommands = _.filter(_.pairs(commands), function(commandPair) {
 				return commandPair[1].isAvailable();
 			});
+			availableCommands = _.sortBy(availableCommands, function(commandPair) {
+				return commandPair[0];
+			});
 			_.each(availableCommands, function(commandPair, commandName) {
 				result += _.escape(commandPair[0]) + ' ' +
 							_.escape(commandPair[1].help) + '<br>';
@@ -234,7 +245,7 @@ Template.console.rendered = function() {
 	$('#console_input').focus();
 
 	var $resultsWrapper = $('.results_wrapper');
-	$resultsWrapper.scrollTop($resultsWrapper.offset().top);
+	$resultsWrapper.scrollTop($('.results_wrapper').offset().top);
 };
 
 Template.console.outputs = function() {
