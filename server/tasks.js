@@ -202,9 +202,6 @@ Meteor.publish(null, function() {
 });
 
 Meteor.startup(function() {
-	// TODO :set solved_tasks to empty array for those who hadn't solved anything
-	// Meteor.users.update({???},{$set: {'profile.solved_tasks':[]}},{multi:true});
-	// TODO: follow code can broke all stat when server crashed
 	_.each(tasks, function(task) {
 		if (Tasks.find({name: task.name}).count() === 0) {
 			Tasks.insert(_.omit(task, 'checkFlag'));
@@ -212,5 +209,15 @@ Meteor.startup(function() {
 			Tasks.update({name: task.name}, _.omit(task, 'checkFlag'));
 		}
 	});
+
+	// fix fields names
+	Meteor.users.update(
+		{ 'profile.solved_tasks': { $exists: false}}, 
+		{ $set: {
+			'profile.solved_tasks': [],
+			'profile.last_submit': 0,
+			'profile.last_success': 0 }
+		}
+	);
 });
 
