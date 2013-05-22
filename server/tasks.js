@@ -175,6 +175,19 @@ tasks = [
 		checkFlag: function(flag) {
 			return (flag === '69ccc0dd616f12d151525fc9f753ec9f');
 		}
+	},
+	{
+		name: 'misa_encoding',
+		category: 'Crypto',
+		description: 'misa sent me this <a href="/bd72715c3eeb690fee8cdd4642d61c1e" target="_blank">letter</a> recently. Does it mean anything?<br>(flag is md5(decoded_letter))',
+		value: 100,
+		available: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === '474e9b1cf54cd2581bbdabe111fff13c');
+		}
 	}
 ];
 
