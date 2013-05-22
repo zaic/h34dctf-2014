@@ -259,7 +259,7 @@ tasks = [
 		category: 'Stegano',
 		description: 'Another stupid stegano task. Here, <a href="/3ba2b0efa06a6423c6dd513259bfd900" target="_blank">get it</a>.',
 		value: 300,
-		avilable: true,
+		available: true,
 		solved: 0,
 		hints: [],
 
