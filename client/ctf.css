@@ -61,6 +61,7 @@ div.result{
 
 .console div.results{
   padding: 10px;
+  white-space: nowrap;
 }
 
 .prompt{
