@@ -188,6 +188,19 @@ tasks = [
 		checkFlag: function(flag) {
 			return (flag === '474e9b1cf54cd2581bbdabe111fff13c');
 		}
+	},
+	{
+		name: 'qrcode',
+		category: 'Stegano',
+		description: 'No, it\'s not what you think. Get a <a href="https://www.dropbox.com/s/9j50suo5v9jrsji/qrcode.png" target="_blank">flag</a>',
+		value: 100,
+		available: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === 'U_R_r3333333333333Ly_$T360_m4St4');
+		}
 	}
 ];
 
