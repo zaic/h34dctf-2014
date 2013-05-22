@@ -151,7 +151,7 @@ var commands = {
 				result_local.setUTCMilliseconds(result);
 				var time_cur  = "Current time: " + getTimeInNiceFormat(new Date());
 				var time_end  = "Ending time: &nbsp;" + getTimeInNiceFormat(result_local);
-				var time_left = "<b>Timeleft:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp" + getDistanceInNiceFormat((result_local - (new Date()))) + "</b>";
+				var time_left = "<b>Timeleft:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getDistanceInNiceFormat((result_local - (new Date()))) + "</b>";
 				callback(time_cur + '<br>' + time_end + '<br>' + time_left);
 			});
 			return "";
@@ -177,7 +177,7 @@ var commands = {
 						if (index === 0) {
 							hintsStr += '<b>' + task.name + '</b> - ';
 						} else {
-							hintsStr += '<br>' + '&nbsp'.repeat(task.name.length + 3);
+							hintsStr += '<br>' + '&nbsp;'.repeat(task.name.length + 3);
 						}
 						hintsStr += hint;
 					});
