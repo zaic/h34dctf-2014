@@ -1,6 +1,5 @@
 Tasks = new Meteor.Collection('ctf_tasks');
-// { name: 'bin100', description: 'Solve <a href="bin100.exe">this</a>!',
-//   category: 'Binary', value: 100, available: false }
+Submits = new Meteor.Collection('submits');
 
 String.prototype.repeat = function( num ) {
     return new Array( num + 1 ).join( this );

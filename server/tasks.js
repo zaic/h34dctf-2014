@@ -279,7 +279,7 @@ Meteor.methods({
 			return "Invalid task";
 		}
 
-		// TODO: store attempt
+		Submits.insert({'team': user.username, 'task': task_name, 'flag': flag, 'time': curr_submit_time});
 		if (typeof(flag) !== 'string' || !task[0].checkFlag(flag)) {
 			return "It's wrong :(";
 		}
@@ -338,6 +338,11 @@ Meteor.startup(function() {
 			'profile.solved_tasks': [],
 			'profile.last_submit': 0,
 			'profile.last_success': 0 }
+		}
+	);
+
+	Submits.find({}).forEach(function(t) {
+			console.log(t);
 		}
 	);
 });
