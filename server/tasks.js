@@ -140,7 +140,7 @@ tasks = [
 		name: 'moveit',
 		category: 'Crypto',
 		description: 'Classical cipher like l33t ' +
-				'<a href="https://www.dropbox.com/sh/2wll8vvwy4hf23c/KeNdXRDPUc/crypto200_encrypted.txt" target="_blank"></a>',
+				'<a href="https://www.dropbox.com/sh/2wll8vvwy4hf23c/KeNdXRDPUc/crypto200_encrypted.txt target="_blank">task</a>',
 		value: 150,
 		available: true,
 		solved: 0,
