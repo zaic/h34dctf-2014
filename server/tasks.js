@@ -179,7 +179,7 @@ tasks = [
 	{
 		name: 'greeter1',
 		category: 'Binary',
-		description: 'This service just says hello to everyone! I hate it! Do something with it!<br>nc ctf.h34dump.com 9200<br>file',
+		description: 'This service just says hello to everyone! I hate it! Do something with it!<br>ssh user@ctf.h34dump.com -p22200<br>pass: user',
 		value: 200,
 		available: true,
 		solved: 0,
@@ -192,8 +192,8 @@ tasks = [
 	{
 		name: 'greeter2',
 		category: 'Binary',
-		description: 'Another damned service!<br>nc ctf.h34dump.com 9201<br>file',
-		value: 400,
+		description: 'Another damned service!<br>ssh user@ctf.h34dump.com -p22201<br>pass: user',
+		value: 300,
 		available: true,
 		solved: 0,
 		hints: [],
@@ -252,6 +252,19 @@ tasks = [
 
 		checkFlag: function(flag) {
 			return (flag === 'c00k13s_4r3_t4sty_4nd_h34lthy');
+		}
+	},
+	{
+		name: 'gnp',
+		category: 'Stegano',
+		description: 'Another stupid stegano task. Here, <a href="/3ba2b0efa06a6423c6dd513259bfd900" target="_blank">get it</a>.',
+		value: 300,
+		avilable: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === 'f1r5T_l4dy_0f_t3h_1nT3rn3t');
 		}
 	}
 ];
