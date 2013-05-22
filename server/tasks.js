@@ -201,6 +201,32 @@ tasks = [
 		checkFlag: function(flag) {
 			return (flag === 'U_R_r3333333333333Ly_$T360_m4St4');
 		}
+	},
+	{
+		name: 'h4x0r_library',
+		category: 'Web',
+		description: '<a href=\'/web1/\'>link</a>',
+		value: 200,
+		available: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === 'l0c4l_c0d3_3x3cut10n_1s_f1n3');
+		}
+	},
+	{
+		name: 'h4x0rs_food',
+		category: 'Web',
+		description: '<a href=\'/web0/\'>link</a>',
+		value: 50,
+		available: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === 'c00k13s_4r3_t4sty_4nd_h34lthy');
+		}
 	}
 ];
 
