@@ -5,7 +5,7 @@ var commands = {
 			//{ Binary: { objects: [taskName], maxLength: 10 } }
 			var maxTasksPerCategory = 0;
 			var result = '';
-			Tasks.find({}, {sort: {'value': 1}}).forEach(function(task) {
+			Tasks.find({}, {sort: [["value", "asc"], ["name", "asc"]]}).forEach(function(task) {
 				var dispalyName = task.name + ' (' + task.value.toString() + '/' + task.solved.toString() + ')';
 				if (task.category in categories) {
 					categories[task.category].objects.push(dispalyName);
@@ -24,24 +24,33 @@ var commands = {
 				}
 			});
 
+			var categoryPairs = _.pairs(categories);
+			categoryPairs = _.sortBy(categoryPairs, function(pair) {
+				return pair[0];
+			});
+
 			var table = '';
 
 			var delimeter = '';
-			_.each(categories, function(category) {
-				delimeter += '+' + '-'.repeat(category.maxLength + 2);
+			_.each(categoryPairs, function(pair) {
+				delimeter += '+' + '-'.repeat(pair[1].maxLength + 2);
 			});
 			delimeter += '+<br>';
 
 			table += delimeter;
 			//Header names
-			_.each(categories, function(category, categoryName) {
+			_.each(categoryPairs, function(pair) {
+				var category = pair[1];
+				var categoryName = pair[0];
 				table += '|' + '&nbsp;' + categoryName + '&nbsp;'.repeat(category.maxLength - categoryName.length + 1);
 			});
 			table += '|<br>';
 			table += delimeter;
 
 			var addCategory =
-				function(category, categoryName) {
+				function(categoryPair) {
+					var categoryName = categoryPair[0];
+					var category = categoryPair[1];
 					if (i < category.objects.length) {
 						table += '|' + '&nbsp;' + category.objects[i] +
 								'&nbsp;'.repeat(category.maxLength - category.objects[i].length + 1);
@@ -50,7 +59,7 @@ var commands = {
 					}
 				};
 			for (var i = 0; i < maxTasksPerCategory; ++i) {
-				_.each(categories, addCategory);
+				_.each(categoryPairs, addCategory);
 				table += '|<br>';
 			}
 			table += delimeter;
