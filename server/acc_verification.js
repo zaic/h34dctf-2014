@@ -29,5 +29,5 @@ Accounts.validateNewUser(function(user) {
 		}
 	}
 
-	return true;
+	return false;
 });
