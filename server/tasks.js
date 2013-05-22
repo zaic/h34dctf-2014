@@ -21,7 +21,7 @@ tasks = [
 	{
 		name: 'suit',
 		category: 'Stegano',
-		description: 'I\'ve purchased a ticket to this film, but to get a ticket I need a password from my account. I store it in this <a href="https://www.dropbox.com/s/wb0qcc370eh7r1v/steg-200-1b860c12edb1e5b8d1e46a9ddc87a09a.jpg" target="_blank">picture</a>. Unfortunately, I forgot what should I do to extract the password from this picture. Help me!',
+		description: 'I\'ve purchased a ticket to this film, but to get a ticket I need a password from my account.</br> I store it in this <a href="https://www.dropbox.com/s/wb0qcc370eh7r1v/steg-200-1b860c12edb1e5b8d1e46a9ddc87a09a.jpg" target="_blank">picture</a>.</br> Unfortunately, I forgot what should I do to extract the password from this picture. Help me!',
 		value: 200,
 		available: true,
 		solved: 0,
@@ -47,7 +47,7 @@ tasks = [
 	{
 		name: 'excel',
 		category: 'Forensics',
-		description: 'I got this <a href="https://www.dropbox.com/s/v4yr70wsxfph6zx/for-50-2-9d77207b9490d5e9d43197be98d8608b" target="_blank">file</a> from my enemy. Can you check it for viruses and other evil staff?',
+		description: 'I got this <a href="https://www.dropbox.com/s/v4yr70wsxfph6zx/for-50-2-9d77207b9490d5e9d43197be98d8608b" target="_blank">file</a> from my enemy.</br> Can you check it for viruses and other evil staff?',
 		value: 50,
 		available: true,
 		solved: 0,
@@ -60,7 +60,7 @@ tasks = [
 	{
 		name: 'excel_returns',
 		category: 'Forensics',
-		description: 'Wow, I\'ve seen a person editing this <a href="https://www.dropbox.com/s/r8vrtre3vr1a4jo/for-100-05eaeaada3940223fc2a56d592e3df2c" target="_blank">file</a>, but it is kind of empty now. Can you check it out?',
+		description: 'Wow, I\'ve seen a person editing this <a href="https://www.dropbox.com/s/r8vrtre3vr1a4jo/for-100-05eaeaada3940223fc2a56d592e3df2c" target="_blank">file</a>,<br> but it is kind of empty now. Can you check it out?',
 		value: 100,
 		available: true,
 		solved: 0,
@@ -86,7 +86,7 @@ tasks = [
 	{
 		name: 'order',
 		category: 'Forensics',
-		description: 'Hi! I want to replace something in my notebook, but I forgot order of these <a href="https://www.dropbox.com/s/oiq9gjian357pjm/for-300-af5d6f419893659a042229419cbc470f" target="_blank">photos</a>, could you help me?',
+		description: 'Hi! I want to replace something in my notebook, but I forgot order of these <a href="https://www.dropbox.com/s/oiq9gjian357pjm/for-300-af5d6f419893659a042229419cbc470f" target="_blank">photos</a>,</br> could you help me?',
 		value: 300,
 		available: true,
 		solved: 0,
@@ -99,7 +99,7 @@ tasks = [
 	{
 		name: 'resurrection',
 		category: 'Forensics',
-		description: 'Our <a href="https://www.dropbox.com/s/xidi9achphm2s1j/for-400-f5918a911f23118812e5f8d9fc67f366.rar" target="_blank">database</a> was badly damaged by unknown hackers. It looks like they are playing with us, because they haven\'t deleted all files and encrypted some files names of the rest. See if you can find anything that wasn\'t corrupted. Send the flag in uppercase letters without any whitespaces.',
+		description: 'Our <a href="https://www.dropbox.com/s/xidi9achphm2s1j/for-400-f5918a911f23118812e5f8d9fc67f366.rar" target="_blank">database</a> was badly damaged by unknown hackers.</br> It looks like they are playing with us, because they haven\'t deleted all files</br> and encrypted some files names of the rest.</br> See if you can find anything that wasn\'t corrupted.<br> Send the flag in uppercase letters without any whitespaces.',
 		value: 400,
 		available: true,
 		solved: 0,
