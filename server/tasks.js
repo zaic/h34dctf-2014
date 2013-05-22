@@ -127,7 +127,7 @@ tasks = [
 		category: 'Crypto',
 		description: 'We got <a href="1fd6cd66ae5c983793914eae882ec942.JPG" target="_blank">this</a> ' +
 						'from Knights Templar hideout. What are they planning?',
-		value: 100,
+		value: 200,
 		available: true,
 		solved: 0,
 		hints: [],
@@ -141,7 +141,7 @@ tasks = [
 		category: 'Crypto',
 		description: 'Classical cipher like l33t ' +
 				'<a href="https://www.dropbox.com/sh/2wll8vvwy4hf23c/KeNdXRDPUc/crypto200_encrypted.txt target="_blank"></a>',
-		value: 200,
+		value: 150,
 		available: true,
 		solved: 0,
 		hints: [],
