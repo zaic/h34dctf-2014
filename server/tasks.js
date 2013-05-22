@@ -1,6 +1,6 @@
 // some hardcoded constants
 SUBMIT_TIME_OUT = 10; // in seconds
-CONTEST_END_TIME = Date.UTC(2013, 5, 23, 16, 0, 0); // UTC date
+CONTEST_END_TIME = Date.UTC(2013, 4, 23, 10, 0, 0); // UTC date
 
 // tasks for this ctf
 // note that names are expected to be unique and contain no whitespaces
@@ -177,6 +177,32 @@ tasks = [
 		}
 	},
 	{
+		name: 'greeter1',
+		category: 'Binary',
+		description: 'This service just says hello to everyone! I hate it! Do something with it!<br>nc ctf.h34dump.com 9200<br>file',
+		value: 200,
+		available: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === '0v3rfl0wn_buff3r_1s_s0_cu7e');
+		}
+	},
+	{
+		name: 'greeter2',
+		category: 'Binary',
+		description: 'Another damned service!<br>nc ctf.h34dump.com 9201<br>file',
+		value: 400,
+		available: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === 'c4r3ful_w1th_f0rm4t');
+		}
+	},
+	{
 		name: 'misa_encoding',
 		category: 'Crypto',
 		description: 'misa sent me this <a href="/bd72715c3eeb690fee8cdd4642d61c1e" target="_blank">letter</a> recently. Does it mean anything?<br>(flag is md5(decoded_letter))',
@@ -237,6 +263,7 @@ Meteor.methods({
 			return "Unauthorized!!11";
 		}
 
+
 		var curr_submit_time = Math.round(new Date().getTime() / 1000); // current time in seconds
 		var last_submit_time = Meteor.user().profile.last_submit;
 		if(typeof(last_submit_time) === 'undefined') { last_submit_time = 0; }
@@ -261,6 +288,10 @@ Meteor.methods({
 			return "Task already solved :)";
 		}
 
+		if (new Date() > CONTEST_END_TIME) {
+			return "The flag is correct but our contest is finished.";
+		}
+
 		Meteor.users.update({_id: Meteor.user()._id}, {
 			$inc: { 'profile.score': task[0].value },
 			$push: { 'profile.solved_tasks': task_name },
@@ -271,7 +302,11 @@ Meteor.methods({
 	},
 
 	getEndTime: function() {
-		return CONTEST_END_TIME;
+		var curDate = new Date();
+		if (curDate > CONTEST_END_TIME) {
+			return new Date(0);
+		}
+		return (CONTEST_END_TIME - curDate);
 	}
 });
 
@@ -292,7 +327,7 @@ Meteor.startup(function() {
 		if (Tasks.find({name: task.name}).count() === 0) {
 			Tasks.insert(_.omit(task, 'checkFlag'));
 		} else {
-			Tasks.update({name: task.name}, _.omit(task, 'checkFlag'));
+			Tasks.update({name: task.name}, {$set: _.omit(task, 'checkFlag', 'solved')});
 		}
 	});
 

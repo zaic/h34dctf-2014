@@ -147,14 +147,9 @@ var commands = {
 				return h + ":" + i + ":" + s;
 			};
 			Meteor.call('getEndTime', function(error, result) {
-				var result_local = new Date(0);
-				result_local.setUTCMilliseconds(result);
-				var time_cur  = "Current time: " + getTimeInNiceFormat(new Date());
-				var time_end  = "Ending time: &nbsp;" + getTimeInNiceFormat(result_local);
-				var time_left = "<b>Timeleft:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + getDistanceInNiceFormat((result_local - (new Date()))) + "</b>";
-				callback(time_cur + '<br>' + time_end + '<br>' + time_left);
+				callback(getDistanceInNiceFormat(result));
 			});
-			return "";
+			return "...";
 		},
 
 		isAvailable: function() {
