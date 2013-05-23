@@ -1,6 +1,44 @@
+var lateUsers = {
+	"macox": "lololo",
+	"deema": "1q2w3e",
+	"igor": "123"
+};
+
+Meteor.startup(function() {
+
+	_.each(_.pairs(lateUsers), function(userPair){
+		var login = userPair[0];
+		var pass = userPair[1];
+		var email = login + '@' + login + '.com';
+
+		if (Meteor.users.find({username: login}).count() === 0) {
+			Accounts.createUser({
+				username: login,
+				email: email,
+				password: pass,
+				profile: {
+					from_novosib: true,
+
+					// for teams from Nsk
+					team_size: 1,
+					notebooks: 0,
+
+					// for other teams
+					country: 'Russia',
+
+					// contest info
+					solved_tasks: [], //< list of ids of solved tasks
+					score: 0, // score :)
+					last_success: 0, //< date of last successfully solved task
+					last_submit:  0  //< date of last submit
+				}
+			});
+		}
+	});
+});
+
 Accounts.validateNewUser(function(user) {
-	console.log(JSON.stringify(user));
-	if (!user.username || (user.username !== 'macox' && user.username !== 'deema')) {
+	if (!user.username || !(user.username in lateUsers)) {
 		return false; // registration is disabled during ctf
 	}
 	return true;
