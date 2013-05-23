@@ -3,139 +3,104 @@
 </head>
 
 <body>
-    {{> helper}}
+  {{> helper}}
 </body>
 
 <template name="helper">
-    {{#if isScoreboard}}
-        {{> scoreboard}}
-    {{else}}
-        {{#if currentUser}}
-            {{> console}}
-        {{else}}
-            {{> login}}
-        {{/if}}
-    {{/if}}
+  {{#if isScoreboard}}
+  {{> scoreboard}}
+  {{else}}
+  {{#if currentUser}}
+  {{> console}}
+  {{else}}
+  {{> login}}
+  {{/if}}
+  {{/if}}
 </template>
 
 <template name="login">
   <div id="loginModal">
-    <div class="modal-header">
-      <h3 id="fire" style="background: #000; color: #666;">h34dCTF</h3>
-    </div>
     <div class="modal-body">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
-          <!--<li><a href="#create" data-toggle="tab">Register Team</a></li>-->
-          <li><a href="#participants" data-toggle="tab">Participants</a></li>
-		  <li><a href="#rules" data-toggle="tab">Rules</a></li>
-		  <li><a href="/scoreboard" target="blank">Scoreboard</a></li>
-        </ul>
-        <div id="myTabContent" class="tab-content">
-          <div class="tab-pane active in" id="login">
-            <fieldset class="form-signin">
-              <h2 class="form-signin-heading">Login</h2>
-              <div class="control-group">
-                <!-- Username -->
-                <label class="control-label" for="team">Team Name</label>
-                <div class="controls">
-                  <input type="text" name="team" placeholder="" class="input-block-level">
-                </div>
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+        <!--<li><a href="#create" data-toggle="tab">Register Team</a></li>-->
+        <li><a href="#participants" data-toggle="tab">Participants</a></li>
+        <li><a href="#rules" data-toggle="tab">Rules</a></li>
+        <li><a href="/scoreboard" target="_blank">Scoreboard</a></li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane active in" id="login">
+          <fieldset class="form-signin">
+            <h2 class="form-signin-heading">Login</h2>
+            <div class="alert alert-error" id="login-error" style="display: none">
+              <div id="loginError"></div>
+            </div>
+            <div class="control-group">
+              <!-- Username -->
+              <label class="control-label" for="team">Team Name</label>
+              <div class="controls">
+                <input type="text" name="team" placeholder="" class="input-block-level">
               </div>
-              <div class="control-group">
-                <!-- Password-->
-                <label class="control-label" for="password">Password</label>
-                <div class="controls">
-                  <input type="password" name="password" placeholder="" class="input-block-level">
-                </div>
+            </div>
+            <div class="control-group">
+              <!-- Password-->
+              <label class="control-label" for="password">Password</label>
+              <div class="controls">
+                <input type="password" name="password" placeholder="" class="input-block-level">
               </div>
-              <div class="control-group">
-                <!-- Button -->
-                <div class="controls">
-                  <button id="submit_login" class="btn btn-large btn-primary">Login</button>
-                </div>
+            </div>
+            <div class="control-group">
+              <!-- Button -->
+              <div class="controls">
+                <button id="submit_login" class="btn btn-large btn-primary">Login</button>
               </div>
-			  <div class="alert" id="login-error" style="display: none">
-				<button type="button" class="close" data-dismiss="alert">×</button>
-				<div id="loginError"></div>
-			  </div>
-            </fieldset>
-          </div>
-          <div class="tab-pane fade" id="create">
-            <fieldset class="form-signin">
-			  <h2 class="form-signin-heading">Register Team</h2>
-              <label for="team">Team Name*</label>
-              <input name="team" type="text" value="" class="input-block-level">
-              <label for="email">Email*</label>
-              <input name="email" type="text" value="" class="input-block-level">
-              <label for="password">Password*</label>
-              <input name="password" type="password" value="" class="input-block-level">
-			  <label for="country">Country</label>
-			  <input name="country" type="text" value="" class="input-block-level">
-			  <label for="from_novosib" class="checkbox">
-				<input name="from_novosib" id="from_novosib" type="checkbox"> Are you from Novosibirsk? (only for internal participants)
-			  </label>
-              <label for="team_size" id="team_size" style="display: none">Team size
-				<input name="team_size" type="text" value="" class="input-block-level">
-			  </label>
-              <label for="notebooks" id="notebooks" style="display: none">How much notebooks do you need? (zero if not needed)
-				<input name="notebooks" type="text" value="0" class="input-block-level">
-			  </label>
-			  <p>* - required fields</p>
-              <div>
-                <button id="submit_register" class="btn btn-large btn-primary">Create Account</button>
-              </div>
-			  <div class="alert" id="register-error" style="display: none">
-				<button type="button" class="close" data-dismiss="alert">×</button>
-				<div id="registerError"></div>
-			  </div>
-            </fieldset>
-          </div>
-          <div class="tab-pane fade" id="participants">
-            <fieldset class="form-signin">
-              <h2 class="form-signin-heading">Participants</h2>
-				<table class="table table-bordered">
-					<tr><td>Team name</td><td>Country</td><td>From Novosibirsk</td></tr>
-					{{#each teams}}
-						<tr><td>{{username}}</td><td>{{profile.country}}</td><td>{{profile.from_novosib}}</td></tr>
-					{{/each}}
-				</table>
-            </fieldset>
-          </div>
-		  <div class="tab-pane fade" id="rules">
-            <fieldset class="form-signin">
-              <h2 class="form-signin-heading">h34dCTF rules</h2>
-				<p><b>[ENG]</b></p>
-				<p><u>Information:</u></p>
-				<p>1) This CTF is a part of <a href="http://phdays.ru/registration/everywhere/">PHDays Everywhere</a>.</p>
-				<p>2) The main objective is to attract new people to the subject of information security.</p>
-				<p>3) This is a school CTF, problems have a beginning and an average level of complexity.</p>
-				<p>4) CTF is task-based. Each task will earn you different amount of points.</p>
-				<p><u>Rules:</u></p>
-				<p>1) Only registered teams may participate in this challenge. Registration is available before May 23.</p>
-				<p>2) There is no limit for the number of people participating per team. You only need one registration per team.</p>
-				<p>3) Any kind of attack (such as DoS, bruteforce, etc.) at game servers or other teams is prohibited. Those teams who ignore this rule will be disqualified.</p>
-				<p>4) The competition will last for 6 hours.</p>
-				<p>5) Organizers may change the rules before and during the challenge.</p>
-				<p>If you have any questions please feel free to contact us at team[at]h34dump.com</p>
-				<br/>
-				<p><b>[RUS]</b></p>
-				<p><u>Информация:</u><p>
-				<p>1) Данный CTF проходит в рамках <a href="http://phdays.ru/registration/everywhere/">PHDays Everywhere</a>;</p>
-				<p>2) Главной целью проведения является привлечение людей к тематике ИТ-безопасности.</p>
-				<p>3) Данный CTF имеет начальный уровень и рассчитан на начинающие команды.</p>
-				<p>4) Формат CTF - task-based (командам будут предложены различные задания, разные задания могут давать различное количество очков).</p>
-				<p><u>Правила:</u></p>
-				<p>1) К участию в соревнованиях допускаются только зарегистрированные команды. Зарегистрироваться можно до 23 мая.</p>
-				<p>2) В команде может быть неограниченное количество участников.</p>
-				<p>3) Запрещены любые атаки на машины жюри и других участников (такие как DoS, bruteforce и другие), если не сказано обратное. Команды, которые нарушат это правило, будут дисквалифицированы.</p>
-				<p>4) Соревнование продлится 6 часов.</p>
-				<p>5) Организаторы в праве менять правила до и во время соревнований.</p>
-				<p><b>6) Для команд из новосибирска предполагается очное участие в технопарке.</b></p>
-				<p>Если у вас возникли какие-либо вопросы вы может связаться с нами по team[at]h34dump.com;</p>
-            </fieldset>
-          </div>
+            </div>
+          </fieldset>
         </div>
+        <div class="tab-pane fade" id="participants">
+          <fieldset class="form-participants">
+            <h2 class="form-signin-heading">Participants</h2>
+            <table class="table table-bordered">
+              <tr><td>No.</td><td><b>Team Name</b></td><td><b>Country</b></td><td><b>From Novosibirsk</b></td></tr>
+              {{#each teams}}
+              <tr><td>{{number}}</td><td>{{username}}</td><td>{{profile.country}}</td><td>{{profile.from_novosib}}</td></tr>
+              {{/each}}
+            </table>
+          </fieldset>
+        </div>
+        <div class="tab-pane fade" id="rules">
+        <fieldset class="form-rules">
+          <h2 class="form-signin-heading">h34dCTF rules</h2>
+          <p><b>[ENG]</b></p>
+          <p><u>Information:</u></p>
+          <p>1) This CTF is a part of <a href="http://phdays.com/registration/everywhere/">PHDays Everywhere</a>.</p>
+          <p>2) The main objective is to attract new people to the subject of information security.</p>
+          <p>3) This is a school CTF, problems have a beginning and an average level of complexity.</p>
+          <p>4) CTF is task-based. Each task will earn you different amount of points.</p>
+          <p><u>Rules:</u></p>
+          <p>1) Only registered teams may participate in this challenge. Registration is available before May 23.</p>
+          <p>2) There is no limit for the number of people participating per team. You only need one registration per team.</p>
+          <p>3) Any kind of attack (such as DoS, bruteforce, etc.) at game servers or other teams is prohibited. Those teams who ignore this rule will be disqualified.</p>
+          <p>4) The competition will last for 6 hours.</p>
+          <p>5) Organizers may change the rules before and during the challenge.</p>
+          <p>If you have any questions please feel free to contact us at <a href="mailto:team@h34dump.com?Subject=CTF_Question">team[at]h34dump.com</a></p>
+          <br/>
+          <p><b>[RUS]</b></p>
+          <p><u>Информация:</u><p>
+            <p>1) Данный CTF проходит в рамках <a href="http://phdays.ru/registration/everywhere/">PHDays Everywhere</a>;</p>
+            <p>2) Главной целью проведения является привлечение людей к тематике ИТ-безопасности.</p>
+            <p>3) Данный CTF имеет начальный уровень и рассчитан на начинающие команды.</p>
+            <p>4) Формат CTF - task-based (командам будут предложены различные задания, разные задания могут давать различное количество очков).</p>
+            <p><u>Правила:</u></p>
+            <p>1) К участию в соревнованиях допускаются только зарегистрированные команды. Зарегистрироваться можно до 23 мая.</p>
+            <p>2) В команде может быть неограниченное количество участников.</p>
+            <p>3) Запрещены любые атаки на машины жюри и других участников (такие как DoS, bruteforce и другие), если не сказано обратное. Команды, которые нарушат это правило, будут дисквалифицированы.</p>
+            <p>4) Соревнование продлится 6 часов, начало 11-00 UTC+7</p>
+            <p>5) Организаторы в праве менять правила до и во время соревнований.</p>
+            <p>Если у вас возникли какие-либо вопросы вы может связаться с нами по <a href="mailto:team@h34dump.com?Subject=CTF_Question">team[at]h34dump.com</a></p>
+          </fieldset>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -168,36 +133,36 @@
 </template>
 
 <template name="scoreboard">
-    <div align='center'>
-		<h2 class="form-signin-heading">Scoreboard</h2>
-        <label for="nsk_only" class="checkbox">
-		{{#if isNskOnly}}
-			<input name="nsk_only" id="nsk_only" type="checkbox" align="center" checked>only Novosibirsk teams
-		{{else}}
-			<input name="nsk_only" id="nsk_only" type="checkbox" align="center">only Novosibirsk teams
-		{{/if}}
-		</label>
-    </div>
-    <table class="table table-hover table-striped">
-	    <thead>
-        <tr>
-            <th width='10%'>Rank</th>
-            <th width='30%'>Team</th>
-            <th width='20%'>Country</th>
-            <th width='20%'>Score</th>
-            <th width='20%'>Last</th>
-        </tr>
-		</thead>
-		<tbody>
-        {{#each teams}}
-            <tr>
-                <td>{{rank}}</td>
-                <td>{{team}}</td>
-                <td>{{country}}</td>
-                <td>{{score}}</td>
-                <td>{{last_success}}</td>
-            </tr>
-        {{/each}}
-		</tbody>
-    </table>
+  <div align='center'>
+    <h2 class="form-signin-heading">Scoreboard</h2>
+    <label for="nsk_only" class="checkbox">
+      {{#if isNskOnly}}
+      <input name="nsk_only" id="nsk_only" type="checkbox" align="center" checked>only Novosibirsk teams
+      {{else}}
+      <input name="nsk_only" id="nsk_only" type="checkbox" align="center">only Novosibirsk teams
+      {{/if}}
+    </label>
+  </div>
+  <table class="table table-hover table-striped">
+   <thead>
+    <tr>
+      <th width='10%'>Rank</th>
+      <th width='30%'>Team</th>
+      <th width='20%'>Country</th>
+      <th width='20%'>Score</th>
+      <th width='20%'>Last</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each teams}}
+    <tr>
+      <td>{{rank}}</td>
+      <td>{{team}}</td>
+      <td>{{country}}</td>
+      <td>{{score}}</td>
+      <td>{{last_success}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
 </template>

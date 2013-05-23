@@ -14,7 +14,7 @@ body {
   box-shadow: 0px -4px 5px rgba(0,0,0,0.5);
   -moz-box-shadow: 0px -4px 5px rgba(0,0,0,0.5);
   -webkit-box-shadow: 0px -4px 5px rgba(0,0,0,0.5);
-  font-size: 11px;
+  font-size: 16px;
 }
 
 .modal-body {
@@ -105,7 +105,7 @@ div.result{
   display: block;
 }
 
-.form-signin {
+.form-signin, .form-rules, .form-participants {
     max-width: 300px;
     padding: 19px 29px 29px;
     margin: 0 auto 20px;
@@ -117,6 +117,17 @@ div.result{
     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
     box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
+
+.form-rules
+{
+    max-width: 600px;
+}
+
+.form-participants
+ {
+max-width: 500px;
+ }
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
     margin-bottom: 10px;

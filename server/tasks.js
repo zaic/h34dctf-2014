@@ -340,7 +340,11 @@ Meteor.startup(function() {
 		if (Tasks.find({name: task.name}).count() === 0) {
 			Tasks.insert(_.omit(task, 'checkFlag'));
 		} else {
-			Tasks.update({name: task.name}, {$set: _.omit(task, 'checkFlag', 'solved')});
+			var omitFields = ['checkFlag', 'solved'];
+			if (!task.hints || task.hints.length === 0) {
+				omitFields.push('hints');
+			}
+			Tasks.update({name: task.name}, {$set: _.omit(task, omitFields)});
 		}
 	});
 
@@ -355,8 +359,7 @@ Meteor.startup(function() {
 	);
 
 	Submits.find({}).forEach(function(t) {
-			console.log(t);
-		}
-	);
+		console.log(t);
+	});
 });
 
