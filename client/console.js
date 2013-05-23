@@ -6,19 +6,25 @@ var commands = {
 			var maxTasksPerCategory = 0;
 			var result = '';
 			Tasks.find({}, {sort: [["value", "asc"], ["name", "asc"]]}).forEach(function(task) {
-				var dispalyName = task.name + ' (' + task.value.toString() + '/' + task.solved.toString() + ')';
+				var displayName = task.name + ' (' + task.value.toString() + '/' + task.solved.toString() + ')';
+				var realLength = displayName.length;
+				var user = Meteor.user();
+				if (user && _.contains(user.profile.solved_tasks, task.name)) {
+					displayName = '<s>' + displayName + '</s>';
+				}
+				var obj = {displayName: displayName, realLength: realLength};
 				if (task.category in categories) {
-					categories[task.category].objects.push(dispalyName);
-					if (categories[task.category].maxLength < dispalyName.length) {
-						categories[task.category].maxLength = dispalyName.length;
+					categories[task.category].objects.push(obj);
+					if (categories[task.category].maxLength < obj.realLength) {
+						categories[task.category].maxLength = obj.realLength;
 					}
 					if (categories[task.category].objects.length > maxTasksPerCategory) {
 						maxTasksPerCategory = categories[task.category].objects.length;
 					}
 				} else {
 					categories[task.category] = {
-						objects: [dispalyName],
-						maxLength: Math.max(task.category.length, dispalyName.length)
+						objects: [obj],
+						maxLength: Math.max(task.category.length, obj.realLength)
 					};
 					if (maxTasksPerCategory === 0) { ++maxTasksPerCategory; }
 				}
@@ -52,8 +58,8 @@ var commands = {
 					var categoryName = categoryPair[0];
 					var category = categoryPair[1];
 					if (i < category.objects.length) {
-						table += '|' + '&nbsp;' + category.objects[i] +
-								'&nbsp;'.repeat(category.maxLength - category.objects[i].length + 1);
+						table += '|' + '&nbsp;' + category.objects[i].displayName +
+								'&nbsp;'.repeat(category.maxLength - category.objects[i].realLength + 1);
 					} else {
 						table += '|' + '&nbsp;'.repeat(category.maxLength + 2);
 					}
