@@ -368,7 +368,8 @@ Meteor.startup(function() {
 			'profile.solved_tasks': [],
 			'profile.last_submit': 0,
 			'profile.last_success': 0 }
-		}
+		},
+		{ multi: true }
 	);
 
 	Submits.find({}).forEach(function(t) {
