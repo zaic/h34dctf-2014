@@ -125,7 +125,7 @@ tasks = [
 	{
 		name: 'templars',
 		category: 'Crypto',
-		description: 'We got <a href="1fd6cd66ae5c983793914eae882ec942.JPG" target="_blank">this</a> ' +
+		description: 'We got <a href="https://www.dropbox.com/s/8zqx1wkchyugmek/cry100-844e2f93c36a0ae2c92038b1d5333665.JPG" target="_blank">this</a> ' +
 						'from Knights Templar hideout. What are they planning?',
 		value: 200,
 		available: true,
@@ -265,6 +265,19 @@ tasks = [
 
 		checkFlag: function(flag) {
 			return (flag === 'f1r5T_l4dy_0f_t3h_1nT3rn3t');
+		}
+	},
+	{
+		name: 'virtual',
+		category: 'Admin',
+		description: 'Get a flag from <a href="https://www.dropbox.com/s/j1s64xszrxqu75f/admin.zip" target="_blank">this</a>.',
+		value: 300,
+		available: true,
+		solved: 0,
+		hints: [],
+		
+		checkFlag: function(flag) {
+			return (flag === 'L1ttL3_th1ngz_4ff3ct_l1ttL3_m1ndz');
 		}
 	}
 ];
