@@ -1,6 +1,6 @@
 // some hardcoded constants
 SUBMIT_TIME_OUT = 10; // in seconds
-CONTEST_END_TIME = Date.UTC(2013, 4, 23, 10, 0, 0); // UTC date
+CONTEST_END_TIME = Date.UTC(2013, 4, 23, 11, 0, 0); // UTC date
 
 // tasks for this ctf
 // note that names are expected to be unique and contain no whitespaces
