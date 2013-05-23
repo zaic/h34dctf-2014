@@ -1,5 +1,9 @@
 Accounts.validateNewUser(function(user) {
-	return false; // registration is disabled during ctf
+	console.log(JSON.stringify(user));
+	if (!user.username || (user.username !== 'macox' && user.username !== 'deema')) {
+		return false; // registration is disabled during ctf
+	}
+	return true;
 
 	// if (!user.profile) {
 	// 	throw new Meteor.Error(403, 'Profile required');
