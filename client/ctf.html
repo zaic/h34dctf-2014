@@ -22,15 +22,15 @@
   <div id="loginModal">
     <div class="modal-body">
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
-        <li><a href="#create" data-toggle="tab">Register Team</a></li>
+        <li><a href="#login" data-toggle="tab">Login</a></li>
+        <li class="active"><a href="#create" data-toggle="tab">Register Team</a></li>
         <li><a href="#participants" data-toggle="tab">Participants</a></li>
         <li><a href="#rules" data-toggle="tab">Rules</a></li>
-        <li><a href="/scoreboard" target="_blank">Scoreboard</a></li>
+        <!--<li><a href="/scoreboard" target="_blank">Scoreboard</a></li>-->
       </ul>
       <div id="countdown"></div>
       <div id="myTabContent" class="tab-content">
-        <div class="tab-pane active in" id="login">
+        <div class="tab-pane fade" id="login">
           <fieldset class="form-signin">
             <h2 class="form-signin-heading">Login</h2>
             <div class="alert alert-error" id="login-error" style="display: none">
@@ -58,7 +58,7 @@
             </div>
           </fieldset>
         </div>
-        <div class="tab-pane fade" id="create">
+        <div class="tab-pane active in" id="create">
           <fieldset class="form-signin">
             <h2 class="form-signin-heading">Register Team</h2>
             <div class="alert alert-error" id="register-error" style="display: none">
