@@ -23,11 +23,12 @@
     <div class="modal-body">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
-        <!--<li><a href="#create" data-toggle="tab">Register Team</a></li>-->
+        <li><a href="#create" data-toggle="tab">Register Team</a></li>
         <li><a href="#participants" data-toggle="tab">Participants</a></li>
         <li><a href="#rules" data-toggle="tab">Rules</a></li>
         <li><a href="/scoreboard" target="_blank">Scoreboard</a></li>
       </ul>
+      <div id="countdown"></div>
       <div id="myTabContent" class="tab-content">
         <div class="tab-pane active in" id="login">
           <fieldset class="form-signin">
@@ -57,6 +58,38 @@
             </div>
           </fieldset>
         </div>
+        <div class="tab-pane fade" id="create">
+          <fieldset class="form-signin">
+            <h2 class="form-signin-heading">Register Team</h2>
+            <div class="alert alert-error" id="register-error" style="display: none">
+              <div id="registerError"></div>
+            </div>
+              <div class="alert alert-success" id="register-success" style="display: none">
+                <div id="registerSuccess"></div>
+              </div>
+              <label for="team">Team Name*</label>
+              <input name="team" type="text" value="" class="input-block-level">
+              <label for="email">Email*</label>
+              <input name="email" type="text" value="" class="input-block-level">
+              <label for="password">Password*</label>
+              <input name="password" type="password" value="" class="input-block-level">
+              <label for="country">Country</label>
+              <input name="country" type="text" value="" class="input-block-level">
+              <label for="from_novosib" class="checkbox">
+                <input name="from_novosib" id="from_novosib" type="checkbox"> Are you from Novosibirsk? (only for internal participants)
+              </label>
+              <label for="team_size" id="team_size" style="display: none">Team size
+                <input name="team_size" type="text" value="" class="input-block-level">
+              </label>
+              <label for="notebooks" id="notebooks" style="display: none">How much notebooks do you need? (zero if not needed)
+                <input name="notebooks" type="text" value="0" class="input-block-level">
+              </label>
+              <p>* - required fields</p>
+              <div>
+                <button id="submit_register" class="btn btn-large btn-primary">Create Account</button>
+              </div>
+            </fieldset>
+          </div>
         <div class="tab-pane fade" id="participants">
           <fieldset class="form-participants">
             <h2 class="form-signin-heading">Participants</h2>
@@ -86,12 +119,12 @@
           <p>If you have any questions please feel free to contact us at <a href="mailto:team@h34dump.com?Subject=CTF_Question">team[at]h34dump.com</a></p>
           <br/>
           <p><b>[RUS]</b></p>
-          <p><u>Информация:</u><p>
+          <p><u>Информация:</u></p>
             <p>1) Данный CTF проходит в рамках <a href="http://phdays.ru/registration/everywhere/">PHDays Everywhere</a>;</p>
             <p>2) Главной целью проведения является привлечение людей к тематике ИТ-безопасности.</p>
             <p>3) Данный CTF имеет начальный уровень и рассчитан на начинающие команды.</p>
             <p>4) Формат CTF - task-based (командам будут предложены различные задания, разные задания могут давать различное количество очков).</p>
-            <p><u>Правила:</u></p>
+          <p><u>Правила:</u></p>
             <p>1) К участию в соревнованиях допускаются только зарегистрированные команды. Зарегистрироваться можно до 23 мая.</p>
             <p>2) В команде может быть неограниченное количество участников.</p>
             <p>3) Запрещены любые атаки на машины жюри и других участников (такие как DoS, bruteforce и другие), если не сказано обратное. Команды, которые нарушат это правило, будут дисквалифицированы.</p>
@@ -166,3 +199,4 @@
   </tbody>
 </table>
 </template>
+<!-- vim: set ts=2 sw=2: -->
