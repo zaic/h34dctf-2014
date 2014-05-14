@@ -106,7 +106,7 @@ div.result{
 }
 
 .form-signin, .form-rules, .form-participants {
-    max-width: 300px;
+    max-width: 400px;
     padding: 19px 29px 29px;
     margin: 0 auto 20px;
     border: 1px solid #e5e5e5;
@@ -120,7 +120,7 @@ div.result{
 
 .form-rules
 {
-    max-width: 600px;
+    max-width: 800px;
 }
 
 .form-participants
