@@ -239,7 +239,6 @@ var processCommand = function(command, callback) {
 	commandName = words[0];
 	commandArgs = words.slice(1);
 
-
 	var result = '';
 
 	if (!(commandName in commands) || !commands[commandName].isAvailable()) {
@@ -247,7 +246,9 @@ var processCommand = function(command, callback) {
 	} else if (commandArgs.length < commands[commandName].processFunc.length - 1) {
 		result = 'Not enough arguments. Try help.';
 	} else {
-		commandArgs = _.first(commandArgs, commands[commandName].processFunc.length - 1);
+		var argsCnt = commands[commandName].processFunc.length;
+		if (commandName == 'show') argsCnt = 2;
+		commandArgs = _.first(commandArgs, argsCnt - 1);
 		commandArgs.push(callback);
 		result = commands[commandName].processFunc.apply(this, commandArgs);
 	}
