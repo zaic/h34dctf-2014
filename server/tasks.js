@@ -53,6 +53,19 @@ tasks = [
 			return (flag === 'flag_is_least_significant_bit' || flag === 'least_significant_bit');
 		}
 	},
+    {
+		name: 'rammstein',
+        category: 'Stegano',
+		description: 'Listen nice music. <a href="064cb03869c2dd77ce37cc7d55864a82">WAV</a><br>Flag format is /^[0-9]+$/',
+		value: 200,
+		available: true,
+		solved: 0,
+		hints: [],
+
+		checkFlag: function(flag) {
+			return (flag === '12345679');
+		}
+	},
 
 	{
 		name: 'cow_level',
