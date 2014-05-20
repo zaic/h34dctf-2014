@@ -108,8 +108,21 @@ tasks = [
     {
         name: 'algebra',
         category: 'Crypto',
-        description: '<a href="ctypto.rb">shmyak</a><br>nc ctf.h34dump.com 2803',
+        description: '<a href="6d3db272b6b8e3d353d8dda167e148e2">shmyak</a><br>nc ctf.h34dump.com 2803',
         value: 200,
+        available: true,
+        solved: 0,
+        hints: [],
+
+        checkFlag: function(flag) {
+            return (flag === 'division' || flag === 'flag: division');
+        }
+    },
+    {
+        name: 'nya',
+        category: 'Stegano',
+        description: 'Hmm, <a href="0e358790ca28da62f9f0656b1fb471f9">this</a> picture hides something. I need title.',
+        value: 400,
         available: true,
         solved: 0,
         hints: [],
