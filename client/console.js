@@ -97,7 +97,7 @@ var commands = {
 		},
 
 		isAvailable: function() {
-			return true;
+			return (new Date() > CONTEST_START_TIME);
 		},
 
 		help: '<task_name> <flag> - tries to submit given flag'
@@ -121,7 +121,7 @@ var commands = {
 		},
 
 		isAvailable: function() {
-			return true;
+			return (new Date() > CONTEST_START_TIME);
 		},
 
 		help: '<task_name> - shows task description'
