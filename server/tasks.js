@@ -132,16 +132,16 @@ tasks = [
         }
     },
 	{
-		name: 'suit',
-		category: 'Stegano',
-		description: 'I\'ve purchased a ticket to this film, but to get a ticket I need a password from my account.</br> I store it in this <a href="https://www.dropbox.com/s/wb0qcc370eh7r1v/steg-200-1b860c12edb1e5b8d1e46a9ddc87a09a.jpg" target="_blank">picture</a>.</br> Unfortunately, I forgot what should I do to extract the password from this picture. Help me!',
-		value: 200,
+		name: 'blondie',
+		category: 'Crypto',
+		description: 'Seems this blondie read Stephen King. <a href="954cca60b716d963a0f8e65227f984c0">href</a>',
+		value: 100,
 		available: true,
 		solved: 0,
 		hints: [],
 
 		checkFlag: function(flag) {
-			return (flag === 'd0eS_th3_m4n_makE_t4e_suit');
+			return (flag === 'I_aM_sTuPiD_bLoNdIe_FlAg');
 		}
 	}
 ];
