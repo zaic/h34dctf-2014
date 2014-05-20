@@ -66,20 +66,45 @@ tasks = [
 			return (flag === '12345679');
 		}
 	},
-
 	{
-		name: 'cow_level',
-		category: 'Stegano',
-		description: 'Secret <a href="79805faac89d408d0c4c73b465cac3ce" target="_blank">cow level</a>',
-		value: 150,
+		name: 'loop',
+		category: 'Web',
+		description: 'Escape from <a href="http://ctf.h34dump.com:8081/task50/task50.php" target="_blank">loop</a>',
+		value: 50,
 		available: true,
 		solved: 0,
 		hints: [],
 
 		checkFlag: function(flag) {
-			return (flag.replace('O', '0') === '4ND_n07_a_5iNgl3_c0w_wa5_GIv3n_7h@t_Day');
+			return (flag.replace('O', '0') === 'BR0WSERS_FoR_Pussy');
 		}
 	},
+    {
+        name: 'time',
+        category: 'Web',
+        description: 'Try to find another channel of attack of <a href="http://ctf.h34dump.com:8081/task100/task100.php" target="_blank">this</a>',
+        value: 100,
+        available: true,
+        solved: 0,
+        hints: [],
+
+        checkFlag: function(flag) {
+            return (flag.replace('O', '0') === 'Timing_SUCH_timinG');
+        }
+    },
+    {
+        name: 'openssl',
+        category: 'Web',
+        description: 'Try to find another channel of attack of <a href="http://ctf.h34dump.com:8081/task100/task100.php" target="_blank">this</a>',
+        value: 200,
+        available: true,
+        solved: 0,
+        hints: [],
+
+        checkFlag: function(flag) {
+            return (flag.replace('O', '0') === 'Think_bef0re_cod1ng');
+        }
+    },
 	{
 		name: 'suit',
 		category: 'Stegano',
