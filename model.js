@@ -1,3 +1,8 @@
+// some hardcoded constants
+SUBMIT_TIME_OUT = 10; // in seconds
+CONTEST_START_TIME = Date.UTC(2014, 4, 20, 17, 25, 0); // UTC date
+CONTEST_END_TIME = Date.UTC(2014, 4, 21, 9, 0, 0); // UTC date
+
 Tasks = new Meteor.Collection('ctf_tasks');
 Submits = new Meteor.Collection('submits');
 

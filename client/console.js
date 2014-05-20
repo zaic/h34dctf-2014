@@ -1,6 +1,10 @@
 var commands = {
 	tasks: {
 		processFunc: function(callback) {
+            if (new Date() < CONTEST_START_TIME) {
+                return "The contest hasn't started yet.";
+            }
+
 			var categories = {};
 			//{ Binary: { objects: [taskName], maxLength: 10 } }
 			var maxTasksPerCategory = 0;
