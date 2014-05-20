@@ -105,6 +105,19 @@ tasks = [
             return (flag.replace('O', '0') === 'Think_bef0re_cod1ng');
         }
     },
+    {
+        name: 'algebra',
+        category: 'Crypto',
+        description: '<a href="ctypto.rb">shmyak</a><br>nc ctf.h34dump.com 2803',
+        value: 200,
+        available: true,
+        solved: 0,
+        hints: [],
+
+        checkFlag: function(flag) {
+            return (flag === 'division' || flag === 'flag: division');
+        }
+    },
 	{
 		name: 'suit',
 		category: 'Stegano',
