@@ -73,17 +73,6 @@
               <input name="email" type="text" value="" class="input-block-level">
               <label for="password">Password*</label>
               <input name="password" type="password" value="" class="input-block-level">
-              <label for="country">Country</label>
-              <input name="country" type="text" value="" class="input-block-level">
-              <label for="from_novosib" class="checkbox">
-                <input name="from_novosib" id="from_novosib" type="checkbox"> Are you from Novosibirsk? (only for internal participants)
-              </label>
-              <label for="team_size" id="team_size" style="display: none">Team size
-                <input name="team_size" type="text" value="" class="input-block-level">
-              </label>
-              <label for="notebooks" id="notebooks" style="display: none">How much notebooks do you need? (zero if not needed)
-                <input name="notebooks" type="text" value="0" class="input-block-level">
-              </label>
               <p>* - required fields</p>
               <div>
                 <button id="submit_register" class="btn btn-large btn-primary">Create Account</button>
@@ -94,9 +83,9 @@
           <fieldset class="form-participants">
             <h2 class="form-signin-heading">Participants</h2>
             <table class="table table-bordered">
-              <tr><td>No.</td><td><b>Team Name</b></td><td><b>Country</b></td><td><b>From Novosibirsk</b></td></tr>
+              <tr><td>No.</td><td><b>Team Name</b></td></tr>
               {{#each teams}}
-              <tr><td>{{number}}</td><td>{{username}}</td><td>{{profile.country}}</td><td>{{profile.from_novosib}}</td></tr>
+              <tr><td>{{number}}</td><td>{{username}}</td></tr>
               {{/each}}
             </table>
           </fieldset>
@@ -168,22 +157,14 @@
 <template name="scoreboard">
   <div align='center'>
     <h2 class="form-signin-heading">Scoreboard</h2>
-    <label for="nsk_only" class="checkbox">
-      {{#if isNskOnly}}
-      <input name="nsk_only" id="nsk_only" type="checkbox" align="center" checked>only Novosibirsk teams
-      {{else}}
-      <input name="nsk_only" id="nsk_only" type="checkbox" align="center">only Novosibirsk teams
-      {{/if}}
-    </label>
   </div>
   <table class="table table-hover table-striped">
    <thead>
     <tr>
       <th width='10%'>Rank</th>
-      <th width='30%'>Team</th>
-      <th width='20%'>Country</th>
+      <th width='40%'>Team</th>
       <th width='20%'>Score</th>
-      <th width='20%'>Last</th>
+      <th width='30%'>Last</th>
     </tr>
   </thead>
   <tbody>
@@ -191,7 +172,6 @@
     <tr>
       <td>{{rank}}</td>
       <td>{{team}}</td>
-      <td>{{country}}</td>
       <td>{{score}}</td>
       <td>{{last_success}}</td>
     </tr>

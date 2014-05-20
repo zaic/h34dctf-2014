@@ -1,5 +1,5 @@
 Template.scoreboard.teams = function() {
-    var accepted_nsk = Session.equals('scoreboard_teams', 'nsk') ? [true] : [true, false];
+    var accepted_nsk = Session.equals('scoreboard_teams', 'nsk') ? [true, false] : [true, false];
     var teams = Meteor.users.find({'profile.from_novosib': {$in: accepted_nsk}}, {sort: [['profile.score', 'desc'], ['profile.last_success', 'asc']]});
 
     var last_score   = -1;
