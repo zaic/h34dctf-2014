@@ -158,10 +158,10 @@ var commands = {
 	timeleft: {
 		processFunc: function(callback) {
 			var getDistanceInNiceFormat = function(t) {
-				t = Math.round(t / 1000);
-				var h = ('0' + (Math.round(t / 3600))).slice(-2);
+				t = Math.floor(t / 1000);
+				var h = ('0' + (Math.floor(t / 3600))).slice(-2);
 				t %= 3600;
-				var i = ('0' + (Math.round(t / 60))).slice(-2);
+				var i = ('0' + (Math.floor(t / 60))).slice(-2);
 				var s = ('0' + (t % 60)).slice(-2);
 				return h + ":" + i + ":" + s;
 			};
