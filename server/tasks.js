@@ -128,7 +128,7 @@ tasks = [
         hints: [],
 
         checkFlag: function(flag) {
-            return (flag === 'Never Gonna Give You Up');
+            return (flag === 'Never Gonna Give You Up' || flag == 'Never');
         }
     },
 	{
