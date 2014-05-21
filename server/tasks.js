@@ -17,7 +17,7 @@ tasks = [
     {
 		name: 'passwd',
 		category: 'Binary',
-		description: 'This tool ask me for a password! Hack <a href="a6fb82b4cf21ef7a51a3e606127a93e7">it</a>!.',
+		description: 'This tool ask me for a password! Hack <a href="513fbd6eb812a5e4a8ad7ddcf1479671">it</a>!.',
 		value: 100,
 		available: true,
 		solved: 0,
