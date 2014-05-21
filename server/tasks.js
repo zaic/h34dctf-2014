@@ -128,7 +128,7 @@ tasks = [
         hints: [],
 
         checkFlag: function(flag) {
-            return (flag === 'division' || flag === 'flag: division');
+            return (flag === 'Never Gonna Give You Up');
         }
     },
 	{
