@@ -13,7 +13,7 @@ var commands = {
 				var displayName = task.name + ' (' + task.value.toString() + '/' + task.solved.toString() + ')';
 				var realLength = displayName.length;
 				var user = Meteor.user();
-				if (user && _.contains(user.profile.solved_tasks, task.name)) {
+				if (user && _.contains(user.profile.solvedTasks, task.name)) {
 					displayName = '<s>' + displayName + '</s>';
 				}
 				var obj = {displayName: displayName, realLength: realLength};

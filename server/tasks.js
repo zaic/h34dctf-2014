@@ -174,7 +174,7 @@ Meteor.methods({
 			return "It's wrong :(";
 		}
 
-		if(user.profile.solved_tasks.indexOf(task_name) !== -1) {
+		if(user.profile.solvedTasks.indexOf(task_name) !== -1) {
 			return "Task already solved :)";
 		}
 
@@ -184,7 +184,7 @@ Meteor.methods({
 
 		Meteor.users.update({_id: Meteor.user()._id}, {
 			$inc: { 'profile.score': task[0].value },
-			$push: { 'profile.solved_tasks': task_name },
+			$push: { 'profile.solvedTasks': task_name },
 			$set: { 'profile.last_success': curr_submit_time }
 		});
 		Tasks.update({name: task_name}, {$inc: { solved: 1} });
@@ -227,9 +227,9 @@ Meteor.startup(function() {
 
 	// fix fields names
 	Meteor.users.update(
-		{ 'profile.solved_tasks': { $exists: false}},
+		{ 'profile.solvedTasks': { $exists: false}},
 		{ $set: {
-			'profile.solved_tasks': [],
+			'profile.solvedTasks': [],
 			'profile.last_submit': 0,
 			'profile.last_success': 0 }
 		},
