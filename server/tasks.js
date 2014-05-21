@@ -60,7 +60,7 @@ tasks = [
 		value: 200,
 		available: true,
 		solved: 0,
-		hints: [],
+		hints: ["The phrase is 'flag is [0-9]+'."],
 
 		checkFlag: function(flag) {
 			return (flag === '12345679');
