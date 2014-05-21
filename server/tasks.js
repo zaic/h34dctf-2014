@@ -95,7 +95,7 @@ tasks = [
     {
         name: 'openssl',
         category: 'Web',
-        description: 'Try to find another channel of attack of <a href="http://ctf.h34dump.com:8081/task100/task200.php" target="_blank">this</a>',
+        description: 'Try to find another channel of attack of <a href="http://ctf.h34dump.com:8081/task200/task200.php" target="_blank">this</a>',
         value: 200,
         available: true,
         solved: 0,
